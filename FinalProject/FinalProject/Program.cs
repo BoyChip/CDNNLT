@@ -23,7 +23,7 @@ namespace FinalProject
             BonusSkins.Register();
             SkinManager.EnableFormSkins();
             UserLookAndFeel.Default.SetSkinStyle("DevExpress Style");
-            Application.Run(new DangNhap());
+            Application.Run(new QLToBoMon());
 
         }
     }

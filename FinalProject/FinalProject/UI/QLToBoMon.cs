@@ -73,10 +73,21 @@ namespace FinalProject.UI
 
         private void data_view_RowEnter(object sender, DataGridViewCellEventArgs e)
         {
-            int index = e.RowIndex;
+            ToBoMonBLL _ToBoMon = new ToBoMonBLL();
+            int count = _ToBoMon.Count_Data_Rows();
 
-            text_matobomon.Text = data_view["Column1", index].Value.ToString();
-            text_tentobomon.Text = data_view["Column2", index].Value.ToString();
+            if (count == 0)
+            {
+
+            }
+            else
+            {
+                int index = e.RowIndex;
+
+                text_matobomon.Text = data_view["Column1", index].Value.ToString();
+                text_tentobomon.Text = data_view["Column2", index].Value.ToString();
+            }
+            
         }
 
         private void Excute(string strQuery)

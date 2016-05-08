@@ -34,7 +34,7 @@ namespace FinalProject.Business
         public bool CheckID(string _maHocSinh)
         {
             DataConfig config = new DataConfig();
-            string strQuery = "select * from dbo.diem where mahocsinh = '" + _maHocSinh + "'";
+            string strQuery = "select * from dbo.hocsinh where mahocsinh = '" + _maHocSinh + "'";
             DataTable dt = new DataTable();
             dt = config.GetDataTable(strQuery);
             if (dt.Rows.Count > 0)
@@ -42,11 +42,23 @@ namespace FinalProject.Business
             return false;
         }
 
+        //kiem tra so luong dong co trong co so du lieu 
+        public int Count_Data_Rows()
+        {
+            int result = 0;
+            DataConfig config = new DataConfig();
+            string strQuery = "select * from dbo.diem ";
+            DataTable dt = new DataTable();
+            dt = config.GetDataTable(strQuery);
+            result = dt.Rows.Count;
+            return result;
+        }
+
         // cau lenh update
         public int Update(DiemEntities obj)
         {
             int result = 0;
-            string strQuery = "update dbo.diem set mahocsinh = '"+obj.MaHocSinh+"', mamonhoc = '"+obj.MaMonHoc+"', hocky = '"+obj.HocKy+"', namhoc = '"+obj.NamHoc+"', diemmon = '"+obj.DiemMon+"', heso = '"+obj.HeSoDiem+"'";
+            string strQuery = "update dbo.diem set  mamonhoc = '" + obj.MaMonHoc + "', hocky = '" + obj.HocKy + "', namhoc = '" + obj.NamHoc + "', diemmon = '" + obj.DiemMon + "', heso = '" + obj.HeSoDiem + "' where mahocsinh = '" + obj.MaHocSinh + "'";
             DataConfig config = new DataConfig();
             result = config.executeNoneQuery(strQuery);
             return result;

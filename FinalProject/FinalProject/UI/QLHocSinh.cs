@@ -37,7 +37,7 @@ namespace FinalProject.UI
             //load ma lop len combobox
             LopBLL _Lop = new LopBLL();
             cb_malop.DataSource = _Lop.getData();
-            cb_malop.DisplayMember = "TENLOP";
+            cb_malop.DisplayMember = "MALOP";
             cb_malop.ValueMember = "MALOP";
             
         }
@@ -149,8 +149,26 @@ namespace FinalProject.UI
                     obj_HocSinh.GhiChuHocSinh = text_ghichu.Text.Trim();
 
                     HocSinhBLL _HocSinh = new HocSinhBLL();
-                    _HocSinh.Insert(obj_HocSinh);
-                    Load_data();
+                    string _maHocSinh = text_mahocsinh.Text.Trim();
+                    if (text_mahocsinh.Text.Length == 0 )
+                    {
+                        MessageBox.Show("Mã học sinh không được để trống!", "Thông báo!", MessageBoxButtons.OK);
+                    }
+                        else if (cb_malop.Text.Length == 0)
+                    {
+                        MessageBox.Show("Mã lớp không được để trống!", "Thông báo!", MessageBoxButtons.OK);
+                    }
+                    
+                    else if  (!(_HocSinh.CheckID(_maHocSinh)))
+                    {
+                        _HocSinh.Insert(obj_HocSinh);
+                        Load_data();
+                    }
+                    else
+                    {
+
+                        MessageBox.Show("Ma hoc sinh da ton tai", "thong bao!", MessageBoxButtons.OK);
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -189,7 +207,6 @@ namespace FinalProject.UI
                 {
                     MessageBox.Show("Sua bi loi: " + ex.Message.ToString(), "Thong bao", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
-
             }
             if (strQuery == "delete")
             {

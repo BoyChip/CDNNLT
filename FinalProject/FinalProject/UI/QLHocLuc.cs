@@ -32,6 +32,16 @@ namespace FinalProject.UI
         {
             HocLucBLL _HocLuc = new HocLucBLL();
             data_view.DataSource = _HocLuc.getData();
+
+            HocKyNamHocBLL _HocKy_NamHoc = new HocKyNamHocBLL();
+            cb_namhoc.DataSource = _HocKy_NamHoc.getData();
+            cb_namhoc.DisplayMember = "NAMHOC";
+            cb_namhoc.ValueMember = "NAMHOC";
+
+            HocSinhBLL _HocSinh = new HocSinhBLL();
+            cb_mahocsinh.DataSource = _HocSinh.getData();
+            cb_mahocsinh.DisplayMember = "MAHOCSINH";
+            cb_mahocsinh.ValueMember = "MAHOCSINH";
         }
 
         private void button_them_Click(object sender, EventArgs e)
@@ -76,13 +86,20 @@ namespace FinalProject.UI
 
         private void data_view_RowEnter(object sender, DataGridViewCellEventArgs e)
         {
-            int index = e.RowIndex;
-            /*
-            cb_mahocsinh.Text = data_view["Column1", index].Value.ToString();
-            cb_hocluc.Text = data_view["Column2", index].Value.ToString();
-            cb_hocky.Text = data_view["Column3", index].Value.ToString();
-            cb_namhoc.Text = data_view["Column4", index].Value.ToString();
-             */
+            HocLucBLL _HocLuc = new HocLucBLL();
+            int count = _HocLuc.Count_Data_Rows();
+            if (count == 0)
+            {
+
+            }
+            else
+            {
+                int index = e.RowIndex;
+                cb_mahocsinh.Text = data_view["Column1", index].Value.ToString();
+                cb_hocluc.Text = data_view["Column2", index].Value.ToString();
+                cb_hocky.Text = data_view["Column3", index].Value.ToString();
+                cb_namhoc.Text = data_view["Column4", index].Value.ToString();
+            }      
         }
 
         private void Excute(string strQuery)
@@ -97,10 +114,32 @@ namespace FinalProject.UI
                     obj_HocLuc.HocKy = cb_hocky.Text.Trim();
                     obj_HocLuc.NamHoc = cb_namhoc.Text.Trim();
 
+                    string _maHocSinh = cb_mahocsinh.Text.Trim();
+                    string _hocKy = cb_hocky.Text.Trim();
+                    string _namHoc = cb_namhoc.Text.Trim();
                     HocLucBLL _HocLuc = new HocLucBLL();
-                    _HocLuc.Insert(obj_HocLuc);
-                    Load_data();
+                    if (cb_hocky.Text.Length == 0 || cb_namhoc.Text.Length == 0)
+                    {
+                        MessageBox.Show("Chưa nhập học kỳ hoặc năm học!", "Thông báo!", MessageBoxButtons.OK);
+                    }
+                    else if (cb_mahocsinh.Text.Length == 0)
+                    {
+                        MessageBox.Show("Chưa nhập mã học sinh!", "Thông báo!", MessageBoxButtons.OK);
 
+                    }
+                        else if (cb_hocluc.Text.Length == 0)
+                    {
+                        MessageBox.Show("Bạn chưa xếp loại đánh giá học sinh!", "Thông báo!", MessageBoxButtons.OK);
+                    }
+                    else if (!(_HocLuc.CheckID(_maHocSinh,_hocKy,_namHoc)))
+                    {
+                        _HocLuc.Insert(obj_HocLuc);
+                        Load_data();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Học sinh này đã có trong danh sách xếp loại!", "Thông báo!", MessageBoxButtons.OK);
+                    }
                 }
                 catch (Exception ex)
                 {

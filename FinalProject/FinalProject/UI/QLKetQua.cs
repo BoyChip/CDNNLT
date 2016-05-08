@@ -32,6 +32,16 @@ namespace FinalProject.UI
         {
             TongKetKetQuaBLL _KetQua = new TongKetKetQuaBLL();
             data_view.DataSource = _KetQua.getData();
+
+            HocKyNamHocBLL _HocKy_NamHoc = new HocKyNamHocBLL();
+            cb_namhoc.DataSource = _HocKy_NamHoc.getData();
+            cb_namhoc.DisplayMember = "NAMHOC";
+            cb_namhoc.ValueMember = "NAMHOC";
+
+            HocSinhBLL _HocSinh = new HocSinhBLL();
+            cb_mahocsinh.DataSource = _HocSinh.getData();
+            cb_mahocsinh.DisplayMember = "MAHOCSINH";
+            cb_mahocsinh.ValueMember = "MAHOCSINH";
         }
 
         private void button_them_Click(object sender, EventArgs e)
@@ -74,13 +84,21 @@ namespace FinalProject.UI
 
         private void data_view_RowEnter(object sender, DataGridViewCellEventArgs e)
         {
-            int index = e.RowIndex;
-            /*
-            cb_mahocsinh.Text = data_view["Column1", index].Value.ToString();
-            cb_ketqua.Text = data_view["Column2", index].Value.ToString();
-            cb_hocky.Text = data_view["Column3", index].Value.ToString();
-            cb_namhoc.Text = data_view["Column4", index].Value.ToString();
-             */  
+            TongKetKetQuaBLL _KetQua = new TongKetKetQuaBLL();
+            int count = _KetQua.Count_Data_Rows();
+            if (count == 0)
+            {
+                cb_mahocsinh.Focus();
+            }
+            else
+            {
+                int index = e.RowIndex;
+                
+                cb_mahocsinh.Text = data_view["Column1", index].Value.ToString();
+                cb_ketqua.Text = data_view["Column2", index].Value.ToString();
+                cb_hocky.Text = data_view["Column3", index].Value.ToString();
+                cb_namhoc.Text = data_view["Column4", index].Value.ToString();           
+            }
         }
 
         private void Excute(string strQuery)
@@ -95,9 +113,32 @@ namespace FinalProject.UI
                     obj_KetQua.HocKy = cb_hocky.Text.Trim();
                     obj_KetQua.NamHoc = cb_namhoc.Text.Trim();
 
+                    string _maHocSinh = cb_mahocsinh.Text.Trim();
+                    string _hocKy = cb_hocky.Text.Trim();
+                    string _namHoc = cb_namhoc.Text.Trim();
                     TongKetKetQuaBLL _KetQua = new TongKetKetQuaBLL();
-                    _KetQua.Insert(obj_KetQua);
-                    Load_data();
+
+                    if (cb_hocky.Text.Length == 0 || cb_namhoc.Text.Length == 0)
+                    {
+                        MessageBox.Show("Chưa nhập học kỳ hoặc năm học!", "Thông báo!", MessageBoxButtons.OK);
+                    }
+                    else if (cb_mahocsinh.Text.Length == 0)
+                    {
+                        MessageBox.Show("Chưa nhập mã học sinh!", "Thông báo!", MessageBoxButtons.OK);
+                    }
+                    else if (cb_ketqua.Text.Length == 0)
+                    {
+                        MessageBox.Show("Chưa đánh giá xếp loại học sinh!", "Thông báo!", MessageBoxButtons.OK);
+                    }
+                    else if (!(_KetQua.CheckID(_maHocSinh,_hocKy,_namHoc)))
+                    {
+                        _KetQua.Insert(obj_KetQua);
+                        Load_data();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Học sinh đã được đánh giá trong học kỳ này!", "Thông báo!", MessageBoxButtons.OK);
+                    }
                 }
                 catch (Exception ex)
                 {

@@ -25,7 +25,7 @@ namespace FinalProject.Business
         public int Insert(ToBoMonEntities obj)
         {
             int result = 0;
-            string strQuery = "insert into dbo.tobomon (MATOBOMON , TENBOMON) values ('" + obj.MaToBoMon + "', '" + obj.TenBoMon + "')";
+            string strQuery = "insert into dbo.tobomon (MATOBOMON , TENBOMON) values ('" + obj.MaToBoMon + "',N '" + obj.TenBoMon + "')";
             DataConfig config = new DataConfig();
             result = config.executeNoneQuery(strQuery);
             return result;
@@ -42,11 +42,24 @@ namespace FinalProject.Business
             return false;
         }
 
+        //diem tong so dong có trong csdl 
+        public int  Count_Data_Rows()
+        {
+            int result = 0;
+            DataConfig config = new DataConfig();
+            string strQuery = "select * from dbo.tobomon ";
+            DataTable dt = new DataTable();
+            dt = config.GetDataTable(strQuery);
+            result = dt.Rows.Count;
+            return result;
+        }
+
+
         // cau lenh update
         public int Update(ToBoMonEntities obj)
         {
             int result = 0;
-            string strQuery = "update dbo.tobomon set matobomon = '" + obj.MaToBoMon + "', tenbomon = '" + obj.TenBoMon + "'";
+            string strQuery = "update dbo.tobomon set  tenbomon =N '" + obj.TenBoMon + "' where matobomon = '" + obj.MaToBoMon + "'";
             DataConfig config = new DataConfig();
             result = config.executeNoneQuery(strQuery);
             return result;

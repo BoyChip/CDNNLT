@@ -25,7 +25,7 @@ namespace FinalProject.Business
         public int Insert(MonHocEntities obj)
         {
             int result = 0;
-            string strQuery = "insert into dbo.monhoc (MAMON , TENMON, SOTIET, HESO) values ('" + obj.MaMon + "', '" + obj.TenMon + "', '" + obj.SoTiet + "', '" + obj.HeSo + "')";
+            string strQuery = "insert into dbo.monhoc (MAMON , TENMON, SOTIET, HESO) values ('" + obj.MaMon + "', N'" + obj.TenMon + "', '" + obj.SoTiet + "', '" + obj.HeSo + "')";
             DataConfig config = new DataConfig();
             result = config.executeNoneQuery(strQuery);
             return result;
@@ -46,7 +46,7 @@ namespace FinalProject.Business
         public int Update(MonHocEntities obj)
         {
             int result = 0;
-            string strQuery = "update dbo.monhoc set mamon = '" + obj.MaMon + "', tenmon = '" + obj.TenMon + "', sotiet = '" + obj.SoTiet + "', heso = '" + obj.HeSo + "'";
+            string strQuery = "update dbo.monhoc set  tenmon = '" + obj.TenMon + "', sotiet = '" + obj.SoTiet + "', heso = '" + obj.HeSo + "' where mamon = '" + obj.MaMon + "'";
             DataConfig config = new DataConfig();
             result = config.executeNoneQuery(strQuery);
             return result;

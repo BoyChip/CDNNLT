@@ -30,6 +30,10 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(QLHanhKiem));
             this.data_view = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button_xoa = new DevExpress.XtraEditors.SimpleButton();
             this.button_them = new DevExpress.XtraEditors.SimpleButton();
             this.button_sua = new DevExpress.XtraEditors.SimpleButton();
@@ -40,15 +44,11 @@
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
-            this.groupControl3 = new DevExpress.XtraEditors.GroupControl();
             this.cb_mahocsinh = new System.Windows.Forms.ComboBox();
+            this.groupControl3 = new DevExpress.XtraEditors.GroupControl();
             this.cb_namhoc = new System.Windows.Forms.ComboBox();
             this.cb_hanhkiem = new System.Windows.Forms.ComboBox();
             this.cb_hocky = new System.Windows.Forms.ComboBox();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.data_view)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
@@ -58,6 +58,8 @@
             // 
             // data_view
             // 
+            this.data_view.AllowUserToAddRows = false;
+            this.data_view.AllowUserToDeleteRows = false;
             this.data_view.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.data_view.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
@@ -70,6 +72,30 @@
             this.data_view.Size = new System.Drawing.Size(925, 296);
             this.data_view.TabIndex = 0;
             this.data_view.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.data_view_RowEnter);
+            // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "MAHOCSINH";
+            this.Column1.HeaderText = "Mã học sinh";
+            this.Column1.Name = "Column1";
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "XEPLOAIHANHKIEM";
+            this.Column2.HeaderText = "Hạnh kiểm";
+            this.Column2.Name = "Column2";
+            // 
+            // Column3
+            // 
+            this.Column3.DataPropertyName = "HOCKY";
+            this.Column3.HeaderText = "Học kỳ";
+            this.Column3.Name = "Column3";
+            // 
+            // Column4
+            // 
+            this.Column4.DataPropertyName = "NAMHOC";
+            this.Column4.HeaderText = "Năm học";
+            this.Column4.Name = "Column4";
             // 
             // button_xoa
             // 
@@ -114,7 +140,7 @@
             // button_luu
             // 
             this.button_luu.Image = ((System.Drawing.Image)(resources.GetObject("button_luu.Image")));
-            this.button_luu.Location = new System.Drawing.Point(316, 15);
+            this.button_luu.Location = new System.Drawing.Point(326, 15);
             this.button_luu.Name = "button_luu";
             this.button_luu.Size = new System.Drawing.Size(80, 40);
             this.button_luu.TabIndex = 5;
@@ -163,6 +189,14 @@
             this.groupControl1.TabIndex = 18;
             this.groupControl1.Text = "Thông Tin Học Sinh";
             // 
+            // cb_mahocsinh
+            // 
+            this.cb_mahocsinh.FormattingEnabled = true;
+            this.cb_mahocsinh.Location = new System.Drawing.Point(88, 33);
+            this.cb_mahocsinh.Name = "cb_mahocsinh";
+            this.cb_mahocsinh.Size = new System.Drawing.Size(121, 21);
+            this.cb_mahocsinh.TabIndex = 11;
+            // 
             // groupControl3
             // 
             this.groupControl3.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
@@ -178,14 +212,6 @@
             this.groupControl3.TabIndex = 20;
             this.groupControl3.Text = "groupControl3";
             // 
-            // cb_mahocsinh
-            // 
-            this.cb_mahocsinh.FormattingEnabled = true;
-            this.cb_mahocsinh.Location = new System.Drawing.Point(88, 33);
-            this.cb_mahocsinh.Name = "cb_mahocsinh";
-            this.cb_mahocsinh.Size = new System.Drawing.Size(121, 21);
-            this.cb_mahocsinh.TabIndex = 11;
-            // 
             // cb_namhoc
             // 
             this.cb_namhoc.FormattingEnabled = true;
@@ -197,6 +223,12 @@
             // cb_hanhkiem
             // 
             this.cb_hanhkiem.FormattingEnabled = true;
+            this.cb_hanhkiem.Items.AddRange(new object[] {
+            "Tốt",
+            "Khá",
+            "Trung bình",
+            "Yếu",
+            "Kém"});
             this.cb_hanhkiem.Location = new System.Drawing.Point(694, 148);
             this.cb_hanhkiem.Name = "cb_hanhkiem";
             this.cb_hanhkiem.Size = new System.Drawing.Size(121, 21);
@@ -205,34 +237,13 @@
             // cb_hocky
             // 
             this.cb_hocky.FormattingEnabled = true;
+            this.cb_hocky.Items.AddRange(new object[] {
+            "1",
+            "2"});
             this.cb_hocky.Location = new System.Drawing.Point(694, 106);
             this.cb_hocky.Name = "cb_hocky";
             this.cb_hocky.Size = new System.Drawing.Size(121, 21);
             this.cb_hocky.TabIndex = 14;
-            // 
-            // Column1
-            // 
-            this.Column1.DataPropertyName = "MAHOCSINH";
-            this.Column1.HeaderText = "Mã học sinh";
-            this.Column1.Name = "Column1";
-            // 
-            // Column2
-            // 
-            this.Column2.DataPropertyName = "XEPLOAIHANHKIEM";
-            this.Column2.HeaderText = "Hạnh kiểm";
-            this.Column2.Name = "Column2";
-            // 
-            // Column3
-            // 
-            this.Column3.DataPropertyName = "HOCKY";
-            this.Column3.HeaderText = "Học kỳ";
-            this.Column3.Name = "Column3";
-            // 
-            // Column4
-            // 
-            this.Column4.DataPropertyName = "NAMHOC";
-            this.Column4.HeaderText = "Năm học";
-            this.Column4.Name = "Column4";
             // 
             // QLHanhKiem
             // 

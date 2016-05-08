@@ -42,6 +42,18 @@ namespace FinalProject.Business
                 return true;
             return false;
         }
+
+        //tim kiem hoc sinh trong lop
+        public int TimLopCuaHocSinh(string _maLop)
+        {
+            int result = 0;
+            DataConfig config = new DataConfig();
+            string strQuery = "select * from dbo.hocsinh where malop = '" + _maLop + "'";
+            DataTable dt = new DataTable();
+            dt = config.GetDataTable(strQuery);
+            result = dt.Rows.Count;
+            return result;
+        }
         // cau lenh tim kiem
         public DataTable FindItem(string item)
         {

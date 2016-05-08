@@ -38,7 +38,9 @@ namespace FinalProject.UI
             Query = "add";
             
             cb_hocky.Text = "";
-            text_namhoc.Text = "";
+            cb_namhoc.Text = "";
+
+            cb_hocky.Enabled = true;
             cb_hocky.Focus();
 
             ControlButton(false);
@@ -47,8 +49,7 @@ namespace FinalProject.UI
         private void button_sua_Click(object sender, EventArgs e)
         {
             Query = "edit";
-            cb_hocky.Enabled = false;
-            text_namhoc.Text = "";
+            cb_hocky.Enabled = true;
             ControlButton(false);
         }
 
@@ -66,6 +67,7 @@ namespace FinalProject.UI
 
         private void button_huy_Click(object sender, EventArgs e)
         {
+            cb_hocky.Enabled = true;
             ControlButton(true);
         }
 
@@ -73,11 +75,11 @@ namespace FinalProject.UI
         {
             int index = e.RowIndex;
             cb_hocky.Text = grid_hockynamhoc["Column1", index].Value.ToString();
-            text_namhoc.Text = grid_hockynamhoc["Column2", index].Value.ToString();
+            cb_namhoc.Text = grid_hockynamhoc["Column2", index].Value.ToString();
         }
         private void ControlButton(bool type)
         {
-            this.button_them.Enabled = button_sua.Enabled = button_xoa.Enabled = type;
+            this.button_them.Enabled = button_sua.Enabled = type;
             button_luu.Enabled = button_huy.Enabled = !type;
         }
 
@@ -89,24 +91,28 @@ namespace FinalProject.UI
                 {
                     HocKyNamHocEntities obj_HocKyNamHoc = new HocKyNamHocEntities();
                     obj_HocKyNamHoc.HocKy = cb_hocky.Text.Trim();
-                    obj_HocKyNamHoc.NamHoc = text_namhoc.Text.Trim();
+                    obj_HocKyNamHoc.NamHoc = cb_namhoc.Text.Trim();
                     HocKyNamHocBLL _HocKyNamHoc = new HocKyNamHocBLL();
                     string _HocKy = cb_hocky.Text.Trim();
-                    string _NamHoc = text_namhoc.Text.Trim();
-                    if (!(_HocKyNamHoc.CheckID(_HocKy, _NamHoc)))
+                    string _NamHoc = cb_namhoc.Text.Trim();
+                    if (cb_hocky.Text.Length == 0 || cb_namhoc.Text.Length == 0)
+                    {
+                        DevExpress.XtraEditors.XtraMessageBox.Show("Bạn chưa nhập học kỳ hoặc năm học!", "Thông báo!", MessageBoxButtons.OK);
+                    }
+                    else if (!(_HocKyNamHoc.CheckID(_HocKy, _NamHoc)))
                     {
                         _HocKyNamHoc.Insert(obj_HocKyNamHoc);
                         Load_Data();
                     }
                     else
                     {
-                        MessageBox.Show("Hoc ky: " + _HocKy + " nam hoc: " + _NamHoc + " da ton tai!", "Thong bao!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        DevExpress.XtraEditors.XtraMessageBox.Show("Học kỳ: " + _HocKy + " năm học: " + _NamHoc + " đã tồn tại!", "Thông báo!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
 
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Them bi loi: " + ex.Message.ToString(), "Thong bao", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    DevExpress.XtraEditors.XtraMessageBox.Show("Thêm bị lỗi: " + ex.Message.ToString(), "Thông báo!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
             if (strQuery == "edit")
@@ -115,16 +121,16 @@ namespace FinalProject.UI
                 {
                     HocKyNamHocEntities obj_HocKyNamHoc = new HocKyNamHocEntities();
                     obj_HocKyNamHoc.HocKy = cb_hocky.Text.Trim();
-                    obj_HocKyNamHoc.NamHoc = text_namhoc.Text.Trim();
+                    obj_HocKyNamHoc.NamHoc = cb_namhoc.Text.Trim();
                     HocKyNamHocBLL _HocKyNamHoc = new HocKyNamHocBLL();
                     string _HocKy = cb_hocky.Text.Trim();
-                    string _NamHoc = text_namhoc.Text.Trim();
+                    string _NamHoc = cb_namhoc.Text.Trim();
                     _HocKyNamHoc.Update(obj_HocKyNamHoc);
                     Load_Data();
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Sua bi loi: " + ex.Message.ToString(), "Thong bao", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    DevExpress.XtraEditors.XtraMessageBox.Show("Sửa bị lỗi: " + ex.Message.ToString(), "Thông báo!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
             if (strQuery =="delete")
@@ -132,14 +138,14 @@ namespace FinalProject.UI
                 try
                 {
                     string _HocKy = cb_hocky.Text.Trim();
-                    string _NamHoc = text_namhoc.Text.Trim();
+                    string _NamHoc = cb_namhoc.Text.Trim();
                     HocKyNamHocBLL _HocKyNamHoc = new HocKyNamHocBLL();
                     _HocKyNamHoc.Delete(_HocKy, _NamHoc);
                     Load_Data();
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Xóa bị lỗi: " + ex.Message.ToString(), "Thong bao", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    DevExpress.XtraEditors.XtraMessageBox.Show("Xóa bị lỗi: " + ex.Message.ToString(), "Thông báo!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
         }

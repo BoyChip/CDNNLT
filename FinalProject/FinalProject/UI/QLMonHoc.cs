@@ -40,8 +40,8 @@ namespace FinalProject.UI
 
             text_mamon.Text = "";
             text_tenmon.Text = "";
-            text_sotiet.Text = "";
-            text_hesomon.Text = "";
+            text_sotiet.Text = "0";
+            text_hesomon.Text = "0";
 
             text_mamon.Enabled = true;
             text_mamon.Focus();
@@ -96,8 +96,21 @@ namespace FinalProject.UI
                     obj_MonHoc.HeSo = Convert.ToInt32(text_hesomon.Text);
 
                     MonHocBLL _MonHoc = new MonHocBLL();
-                    _MonHoc.Insert(obj_MonHoc);
-                    Load_data();
+                    string _maMon = text_mamon.Text.Trim();
+
+                    if (text_mamon.Text.Length == 0)
+                    {
+                        MessageBox.Show("Mã môn không được để trống!", "Thông báo!", MessageBoxButtons.OK);
+                    }
+                    else if (!(_MonHoc.CheckID(_maMon)))
+                    {
+                        _MonHoc.Insert(obj_MonHoc);
+                        Load_data();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Mã môn đã tồn tại!", "Thông báo!", MessageBoxButtons.OK);
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -144,7 +157,5 @@ namespace FinalProject.UI
             this.button_them.Enabled = button_sua.Enabled = button_xoa.Enabled = type;
             button_luu.Enabled = button_huy.Enabled = !type;
         }
-
-
     }
 }

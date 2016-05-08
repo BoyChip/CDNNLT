@@ -36,9 +36,9 @@ namespace FinalProject.Entities
             get { return _NamHoc; }
             set { _NamHoc = value; }
         }
-        private int _diemMon;
+        private float _diemMon;
 
-        public int DiemMon
+        public float DiemMon
         {
             get { return _diemMon; }
             set { _diemMon = value; }

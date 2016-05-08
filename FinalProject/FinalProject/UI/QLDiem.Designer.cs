@@ -30,6 +30,13 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(QLDiem));
             this.data_view = new System.Windows.Forms.DataGridView();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button_them = new DevExpress.XtraEditors.SimpleButton();
             this.button_luu = new DevExpress.XtraEditors.SimpleButton();
             this.button_huy = new DevExpress.XtraEditors.SimpleButton();
@@ -42,27 +49,15 @@
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
-            this.cb_hesodiem = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.cb_namhoc = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.cb_hocky = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.cb_mamon = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.cb_mahocsinh = new DevExpress.XtraEditors.ComboBoxEdit();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cb_mahocsinh = new System.Windows.Forms.ComboBox();
+            this.cb_namhoc = new System.Windows.Forms.ComboBox();
+            this.cb_hocky = new System.Windows.Forms.ComboBox();
+            this.cb_mamon = new System.Windows.Forms.ComboBox();
+            this.cb_hesodiem = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.data_view)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.text_diemso.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cb_hesodiem.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cb_namhoc.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cb_hocky.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cb_mamon.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cb_mahocsinh.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
@@ -71,6 +66,8 @@
             // 
             // data_view
             // 
+            this.data_view.AllowUserToAddRows = false;
+            this.data_view.AllowUserToDeleteRows = false;
             this.data_view.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.data_view.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column7,
@@ -86,6 +83,48 @@
             this.data_view.Size = new System.Drawing.Size(1112, 326);
             this.data_view.TabIndex = 0;
             this.data_view.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.data_view_RowEnter);
+            // 
+            // Column7
+            // 
+            this.Column7.DataPropertyName = "STT";
+            this.Column7.HeaderText = "STT";
+            this.Column7.Name = "Column7";
+            // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "MAHOCSINH";
+            this.Column1.HeaderText = "Mã học sinh";
+            this.Column1.Name = "Column1";
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "MAMON";
+            this.Column2.HeaderText = "Mã môn";
+            this.Column2.Name = "Column2";
+            // 
+            // Column3
+            // 
+            this.Column3.DataPropertyName = "HOCKY";
+            this.Column3.HeaderText = "Học kỳ";
+            this.Column3.Name = "Column3";
+            // 
+            // Column4
+            // 
+            this.Column4.DataPropertyName = "NAMHOC";
+            this.Column4.HeaderText = "Năm học";
+            this.Column4.Name = "Column4";
+            // 
+            // Column5
+            // 
+            this.Column5.DataPropertyName = "DIEMMON";
+            this.Column5.HeaderText = "Điểm số";
+            this.Column5.Name = "Column5";
+            // 
+            // Column6
+            // 
+            this.Column6.DataPropertyName = "HESO";
+            this.Column6.HeaderText = "Hệ số điểm";
+            this.Column6.Name = "Column6";
             // 
             // button_them
             // 
@@ -198,55 +237,10 @@
             this.labelControl6.TabIndex = 19;
             this.labelControl6.Text = "Hệ số điểm";
             // 
-            // cb_hesodiem
-            // 
-            this.cb_hesodiem.Location = new System.Drawing.Point(103, 171);
-            this.cb_hesodiem.Name = "cb_hesodiem";
-            this.cb_hesodiem.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cb_hesodiem.Size = new System.Drawing.Size(231, 20);
-            this.cb_hesodiem.TabIndex = 20;
-            // 
-            // cb_namhoc
-            // 
-            this.cb_namhoc.Location = new System.Drawing.Point(103, 33);
-            this.cb_namhoc.Name = "cb_namhoc";
-            this.cb_namhoc.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cb_namhoc.Size = new System.Drawing.Size(231, 20);
-            this.cb_namhoc.TabIndex = 21;
-            // 
-            // cb_hocky
-            // 
-            this.cb_hocky.Location = new System.Drawing.Point(103, 79);
-            this.cb_hocky.Name = "cb_hocky";
-            this.cb_hocky.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cb_hocky.Size = new System.Drawing.Size(231, 20);
-            this.cb_hocky.TabIndex = 22;
-            // 
-            // cb_mamon
-            // 
-            this.cb_mamon.Location = new System.Drawing.Point(103, 125);
-            this.cb_mamon.Name = "cb_mamon";
-            this.cb_mamon.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cb_mamon.Size = new System.Drawing.Size(231, 20);
-            this.cb_mamon.TabIndex = 23;
-            // 
-            // cb_mahocsinh
-            // 
-            this.cb_mahocsinh.Location = new System.Drawing.Point(93, 33);
-            this.cb_mahocsinh.Name = "cb_mahocsinh";
-            this.cb_mahocsinh.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cb_mahocsinh.Size = new System.Drawing.Size(203, 20);
-            this.cb_mahocsinh.TabIndex = 24;
-            // 
             // groupControl1
             // 
-            this.groupControl1.Controls.Add(this.labelControl1);
             this.groupControl1.Controls.Add(this.cb_mahocsinh);
+            this.groupControl1.Controls.Add(this.labelControl1);
             this.groupControl1.Location = new System.Drawing.Point(0, -1);
             this.groupControl1.Name = "groupControl1";
             this.groupControl1.Size = new System.Drawing.Size(370, 263);
@@ -255,12 +249,12 @@
             // 
             // groupControl2
             // 
-            this.groupControl2.Controls.Add(this.labelControl2);
-            this.groupControl2.Controls.Add(this.cb_mamon);
             this.groupControl2.Controls.Add(this.cb_hesodiem);
-            this.groupControl2.Controls.Add(this.labelControl6);
+            this.groupControl2.Controls.Add(this.cb_mamon);
             this.groupControl2.Controls.Add(this.cb_hocky);
             this.groupControl2.Controls.Add(this.cb_namhoc);
+            this.groupControl2.Controls.Add(this.labelControl2);
+            this.groupControl2.Controls.Add(this.labelControl6);
             this.groupControl2.Controls.Add(this.labelControl5);
             this.groupControl2.Controls.Add(this.labelControl4);
             this.groupControl2.Controls.Add(this.text_diemso);
@@ -271,47 +265,52 @@
             this.groupControl2.TabIndex = 26;
             this.groupControl2.Text = "Môn - Điểm";
             // 
-            // Column7
+            // cb_mahocsinh
             // 
-            this.Column7.DataPropertyName = "STT";
-            this.Column7.HeaderText = "STT";
-            this.Column7.Name = "Column7";
+            this.cb_mahocsinh.FormattingEnabled = true;
+            this.cb_mahocsinh.Location = new System.Drawing.Point(103, 36);
+            this.cb_mahocsinh.Name = "cb_mahocsinh";
+            this.cb_mahocsinh.Size = new System.Drawing.Size(121, 21);
+            this.cb_mahocsinh.TabIndex = 25;
             // 
-            // Column1
+            // cb_namhoc
             // 
-            this.Column1.DataPropertyName = "MAHOCSINH";
-            this.Column1.HeaderText = "Mã học sinh";
-            this.Column1.Name = "Column1";
+            this.cb_namhoc.FormattingEnabled = true;
+            this.cb_namhoc.Location = new System.Drawing.Point(157, 25);
+            this.cb_namhoc.Name = "cb_namhoc";
+            this.cb_namhoc.Size = new System.Drawing.Size(121, 21);
+            this.cb_namhoc.TabIndex = 24;
             // 
-            // Column2
+            // cb_hocky
             // 
-            this.Column2.DataPropertyName = "MAMON";
-            this.Column2.HeaderText = "Mã môn";
-            this.Column2.Name = "Column2";
+            this.cb_hocky.FormattingEnabled = true;
+            this.cb_hocky.Items.AddRange(new object[] {
+            "1",
+            "2"});
+            this.cb_hocky.Location = new System.Drawing.Point(157, 78);
+            this.cb_hocky.Name = "cb_hocky";
+            this.cb_hocky.Size = new System.Drawing.Size(121, 21);
+            this.cb_hocky.TabIndex = 25;
             // 
-            // Column3
+            // cb_mamon
             // 
-            this.Column3.DataPropertyName = "HOCKY";
-            this.Column3.HeaderText = "Học kỳ";
-            this.Column3.Name = "Column3";
+            this.cb_mamon.FormattingEnabled = true;
+            this.cb_mamon.Location = new System.Drawing.Point(167, 123);
+            this.cb_mamon.Name = "cb_mamon";
+            this.cb_mamon.Size = new System.Drawing.Size(121, 21);
+            this.cb_mamon.TabIndex = 26;
             // 
-            // Column4
+            // cb_hesodiem
             // 
-            this.Column4.DataPropertyName = "NAMHOC";
-            this.Column4.HeaderText = "Năm học";
-            this.Column4.Name = "Column4";
-            // 
-            // Column5
-            // 
-            this.Column5.DataPropertyName = "DIEMMON";
-            this.Column5.HeaderText = "Điểm số";
-            this.Column5.Name = "Column5";
-            // 
-            // Column6
-            // 
-            this.Column6.DataPropertyName = "HESO";
-            this.Column6.HeaderText = "Hệ số điểm";
-            this.Column6.Name = "Column6";
+            this.cb_hesodiem.FormattingEnabled = true;
+            this.cb_hesodiem.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3"});
+            this.cb_hesodiem.Location = new System.Drawing.Point(167, 169);
+            this.cb_hesodiem.Name = "cb_hesodiem";
+            this.cb_hesodiem.Size = new System.Drawing.Size(121, 21);
+            this.cb_hesodiem.TabIndex = 27;
             // 
             // QLDiem
             // 
@@ -331,11 +330,6 @@
             this.Load += new System.EventHandler(this.QLDiem_Load);
             ((System.ComponentModel.ISupportInitialize)(this.data_view)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.text_diemso.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cb_hesodiem.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cb_namhoc.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cb_hocky.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cb_mamon.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cb_mahocsinh.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();
@@ -361,11 +355,6 @@
         private DevExpress.XtraEditors.LabelControl labelControl4;
         private DevExpress.XtraEditors.LabelControl labelControl5;
         private DevExpress.XtraEditors.LabelControl labelControl6;
-        private DevExpress.XtraEditors.ComboBoxEdit cb_hesodiem;
-        private DevExpress.XtraEditors.ComboBoxEdit cb_namhoc;
-        private DevExpress.XtraEditors.ComboBoxEdit cb_hocky;
-        private DevExpress.XtraEditors.ComboBoxEdit cb_mamon;
-        private DevExpress.XtraEditors.ComboBoxEdit cb_mahocsinh;
         private DevExpress.XtraEditors.GroupControl groupControl1;
         private DevExpress.XtraEditors.GroupControl groupControl2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
@@ -375,5 +364,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.ComboBox cb_mahocsinh;
+        private System.Windows.Forms.ComboBox cb_hesodiem;
+        private System.Windows.Forms.ComboBox cb_mamon;
+        private System.Windows.Forms.ComboBox cb_hocky;
+        private System.Windows.Forms.ComboBox cb_namhoc;
     }
 }

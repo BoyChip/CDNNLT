@@ -26,7 +26,7 @@ namespace FinalProject.Business
         public int Insert(LopEntities obj)
         {
             int result = 0;
-            string strQuery = "insert into dbo.lop (MALOP, KHOILOP, TENLOP, MAGIAOVIEN, SISO, HOCKY, NAMHOC) values ('" + obj.MaLop + "', '" + obj.MaKhoi + "', '"+obj.TenLop+"', '"+obj.MaGiaoVien+"', '"+obj.SiSo+"', '"+obj.HocKy+"','"+obj.NamHoc+"')";
+            string strQuery = "insert into dbo.lop (MALOP, MAKHOI, TENLOP, MAGIAOVIEN, SISO, HOCKY, NAMHOC) values ('" + obj.MaLop + "', '" + obj.MaKhoi + "', N'"+obj.TenLop+"', '"+obj.MaGiaoVien+"', '"+obj.SiSo+"', '"+obj.HocKy+"','"+obj.NamHoc+"')";
             DataConfig config = new DataConfig();
             result = config.executeNoneQuery(strQuery);
             return result;
@@ -47,7 +47,7 @@ namespace FinalProject.Business
         public int Update(LopEntities obj)
         {
             int result = 0;
-            string strQuery = "update dbo.lop set malop = '"+obj.MaLop+"', makhoi = '"+obj.MaKhoi+"', tenlop = '"+obj.TenLop+"', magiaovien = '"+obj.MaGiaoVien+"', siso = '"+obj.SiSo+"', hocky = '"+obj.HocKy+"', namhoc = '"+obj.NamHoc+"'";
+            string strQuery = "update dbo.lop set  makhoi = '"+obj.MaKhoi+"', tenlop = N'"+obj.TenLop+"', magiaovien = '"+obj.MaGiaoVien+"', siso = '"+obj.SiSo+"', hocky = '"+obj.HocKy+"', namhoc = '"+obj.NamHoc+"' where malop ='"+obj.MaLop+"'";
             DataConfig config = new DataConfig();
             result = config.executeNoneQuery(strQuery);
             return result;
@@ -57,7 +57,7 @@ namespace FinalProject.Business
         public int Delete(string _maLop)
         {
             int result = 0;
-            string strQuey = "delete from dbo.hocky_namhoc where malop = '"+_maLop+"'";
+            string strQuey = "delete from dbo.lop where malop = '"+_maLop+"'";
             DataConfig config = new DataConfig();
             result = config.executeNoneQuery(strQuey);
             return result;

@@ -30,6 +30,10 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(QLMonHoc));
             this.data_view = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button_sua = new DevExpress.XtraEditors.SimpleButton();
             this.button_huy = new DevExpress.XtraEditors.SimpleButton();
             this.button_them = new DevExpress.XtraEditors.SimpleButton();
@@ -44,10 +48,6 @@
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.data_view)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.text_mamon.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.text_tenmon.Properties)).BeginInit();
@@ -59,6 +59,8 @@
             // 
             // data_view
             // 
+            this.data_view.AllowUserToAddRows = false;
+            this.data_view.AllowUserToDeleteRows = false;
             this.data_view.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.data_view.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
@@ -71,6 +73,30 @@
             this.data_view.Size = new System.Drawing.Size(800, 229);
             this.data_view.TabIndex = 0;
             this.data_view.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.data_view_RowEnter);
+            // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "MAMON";
+            this.Column1.HeaderText = "Mã môn";
+            this.Column1.Name = "Column1";
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "TENMON";
+            this.Column2.HeaderText = "Tên môn";
+            this.Column2.Name = "Column2";
+            // 
+            // Column3
+            // 
+            this.Column3.DataPropertyName = "SOTIET";
+            this.Column3.HeaderText = "Số tiết";
+            this.Column3.Name = "Column3";
+            // 
+            // Column4
+            // 
+            this.Column4.DataPropertyName = "HESO";
+            this.Column4.HeaderText = "Hệ số môn";
+            this.Column4.Name = "Column4";
             // 
             // button_sua
             // 
@@ -209,30 +235,6 @@
             this.groupControl1.Size = new System.Drawing.Size(395, 140);
             this.groupControl1.TabIndex = 14;
             this.groupControl1.Text = "Thông Tin Môn Học";
-            // 
-            // Column1
-            // 
-            this.Column1.DataPropertyName = "MAMON";
-            this.Column1.HeaderText = "Mã môn";
-            this.Column1.Name = "Column1";
-            // 
-            // Column2
-            // 
-            this.Column2.DataPropertyName = "TENMON";
-            this.Column2.HeaderText = "Tên môn";
-            this.Column2.Name = "Column2";
-            // 
-            // Column3
-            // 
-            this.Column3.DataPropertyName = "SOTIET";
-            this.Column3.HeaderText = "Số tiết";
-            this.Column3.Name = "Column3";
-            // 
-            // Column4
-            // 
-            this.Column4.DataPropertyName = "HESO";
-            this.Column4.HeaderText = "Hệ số môn";
-            this.Column4.Name = "Column4";
             // 
             // QLMonHoc
             // 

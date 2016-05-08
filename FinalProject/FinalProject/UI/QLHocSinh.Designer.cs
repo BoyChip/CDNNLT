@@ -64,6 +64,15 @@
             this.text_tenhocsinh = new DevExpress.XtraEditors.TextEdit();
             this.text_mahocsinh = new DevExpress.XtraEditors.TextEdit();
             this.data_view = new System.Windows.Forms.DataGridView();
+            this.button_them = new DevExpress.XtraEditors.SimpleButton();
+            this.button_sua = new DevExpress.XtraEditors.SimpleButton();
+            this.button_luu = new DevExpress.XtraEditors.SimpleButton();
+            this.button_xoa = new DevExpress.XtraEditors.SimpleButton();
+            this.button_huy = new DevExpress.XtraEditors.SimpleButton();
+            this.text_hohocsinh = new DevExpress.XtraEditors.TextEdit();
+            this.cb_malop = new System.Windows.Forms.ComboBox();
+            this.date_ngaysinh = new DevExpress.XtraEditors.DateEdit();
+            this.Column19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -82,14 +91,6 @@
             this.Column16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button_them = new DevExpress.XtraEditors.SimpleButton();
-            this.button_sua = new DevExpress.XtraEditors.SimpleButton();
-            this.button_luu = new DevExpress.XtraEditors.SimpleButton();
-            this.button_xoa = new DevExpress.XtraEditors.SimpleButton();
-            this.button_huy = new DevExpress.XtraEditors.SimpleButton();
-            this.text_hohocsinh = new DevExpress.XtraEditors.TextEdit();
-            this.cb_malop = new System.Windows.Forms.ComboBox();
-            this.date_ngaysinh = new DevExpress.XtraEditors.DateEdit();
             ((System.ComponentModel.ISupportInitialize)(this.cb_tinh_thanhpho.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cb_quan_huyen.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cb_xa_phuong.Properties)).BeginInit();
@@ -390,6 +391,7 @@
             // 
             this.data_view.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.data_view.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column19,
             this.Column1,
             this.Column2,
             this.Column3,
@@ -413,6 +415,84 @@
             this.data_view.Size = new System.Drawing.Size(475, 150);
             this.data_view.TabIndex = 107;
             this.data_view.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.data_view_RowEnter);
+            // 
+            // button_them
+            // 
+            this.button_them.Location = new System.Drawing.Point(778, 36);
+            this.button_them.Name = "button_them";
+            this.button_them.Size = new System.Drawing.Size(75, 23);
+            this.button_them.TabIndex = 112;
+            this.button_them.Text = "Thêm";
+            this.button_them.Click += new System.EventHandler(this.button_them_Click);
+            // 
+            // button_sua
+            // 
+            this.button_sua.Location = new System.Drawing.Point(778, 75);
+            this.button_sua.Name = "button_sua";
+            this.button_sua.Size = new System.Drawing.Size(75, 23);
+            this.button_sua.TabIndex = 111;
+            this.button_sua.Text = "Sửa";
+            this.button_sua.Click += new System.EventHandler(this.button_sua_Click);
+            // 
+            // button_luu
+            // 
+            this.button_luu.Location = new System.Drawing.Point(778, 166);
+            this.button_luu.Name = "button_luu";
+            this.button_luu.Size = new System.Drawing.Size(75, 23);
+            this.button_luu.TabIndex = 110;
+            this.button_luu.Text = "Lưu";
+            this.button_luu.Click += new System.EventHandler(this.button_luu_Click);
+            // 
+            // button_xoa
+            // 
+            this.button_xoa.Location = new System.Drawing.Point(778, 118);
+            this.button_xoa.Name = "button_xoa";
+            this.button_xoa.Size = new System.Drawing.Size(75, 23);
+            this.button_xoa.TabIndex = 109;
+            this.button_xoa.Text = "Xóa";
+            this.button_xoa.Click += new System.EventHandler(this.button_xoa_Click);
+            // 
+            // button_huy
+            // 
+            this.button_huy.Location = new System.Drawing.Point(778, 209);
+            this.button_huy.Name = "button_huy";
+            this.button_huy.Size = new System.Drawing.Size(75, 23);
+            this.button_huy.TabIndex = 108;
+            this.button_huy.Text = "Hủy";
+            this.button_huy.Click += new System.EventHandler(this.button_huy_Click);
+            // 
+            // text_hohocsinh
+            // 
+            this.text_hohocsinh.Location = new System.Drawing.Point(115, 75);
+            this.text_hohocsinh.Name = "text_hohocsinh";
+            this.text_hohocsinh.Size = new System.Drawing.Size(100, 20);
+            this.text_hohocsinh.TabIndex = 113;
+            // 
+            // cb_malop
+            // 
+            this.cb_malop.FormattingEnabled = true;
+            this.cb_malop.Location = new System.Drawing.Point(114, 42);
+            this.cb_malop.Name = "cb_malop";
+            this.cb_malop.Size = new System.Drawing.Size(101, 21);
+            this.cb_malop.TabIndex = 114;
+            // 
+            // date_ngaysinh
+            // 
+            this.date_ngaysinh.EditValue = null;
+            this.date_ngaysinh.Location = new System.Drawing.Point(114, 181);
+            this.date_ngaysinh.Name = "date_ngaysinh";
+            this.date_ngaysinh.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.date_ngaysinh.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.date_ngaysinh.Size = new System.Drawing.Size(100, 20);
+            this.date_ngaysinh.TabIndex = 115;
+            // 
+            // Column19
+            // 
+            this.Column19.DataPropertyName = "STT";
+            this.Column19.HeaderText = "STT";
+            this.Column19.Name = "Column19";
             // 
             // Column1
             // 
@@ -521,78 +601,6 @@
             this.Column18.DataPropertyName = "GHICHU";
             this.Column18.HeaderText = "Ghi chú";
             this.Column18.Name = "Column18";
-            // 
-            // button_them
-            // 
-            this.button_them.Location = new System.Drawing.Point(778, 36);
-            this.button_them.Name = "button_them";
-            this.button_them.Size = new System.Drawing.Size(75, 23);
-            this.button_them.TabIndex = 112;
-            this.button_them.Text = "Thêm";
-            this.button_them.Click += new System.EventHandler(this.button_them_Click);
-            // 
-            // button_sua
-            // 
-            this.button_sua.Location = new System.Drawing.Point(778, 75);
-            this.button_sua.Name = "button_sua";
-            this.button_sua.Size = new System.Drawing.Size(75, 23);
-            this.button_sua.TabIndex = 111;
-            this.button_sua.Text = "Sửa";
-            this.button_sua.Click += new System.EventHandler(this.button_sua_Click);
-            // 
-            // button_luu
-            // 
-            this.button_luu.Location = new System.Drawing.Point(778, 166);
-            this.button_luu.Name = "button_luu";
-            this.button_luu.Size = new System.Drawing.Size(75, 23);
-            this.button_luu.TabIndex = 110;
-            this.button_luu.Text = "Lưu";
-            this.button_luu.Click += new System.EventHandler(this.button_luu_Click);
-            // 
-            // button_xoa
-            // 
-            this.button_xoa.Location = new System.Drawing.Point(778, 118);
-            this.button_xoa.Name = "button_xoa";
-            this.button_xoa.Size = new System.Drawing.Size(75, 23);
-            this.button_xoa.TabIndex = 109;
-            this.button_xoa.Text = "Xóa";
-            this.button_xoa.Click += new System.EventHandler(this.button_xoa_Click);
-            // 
-            // button_huy
-            // 
-            this.button_huy.Location = new System.Drawing.Point(778, 209);
-            this.button_huy.Name = "button_huy";
-            this.button_huy.Size = new System.Drawing.Size(75, 23);
-            this.button_huy.TabIndex = 108;
-            this.button_huy.Text = "Hủy";
-            this.button_huy.Click += new System.EventHandler(this.button_huy_Click);
-            // 
-            // text_hohocsinh
-            // 
-            this.text_hohocsinh.Location = new System.Drawing.Point(115, 75);
-            this.text_hohocsinh.Name = "text_hohocsinh";
-            this.text_hohocsinh.Size = new System.Drawing.Size(100, 20);
-            this.text_hohocsinh.TabIndex = 113;
-            // 
-            // cb_malop
-            // 
-            this.cb_malop.FormattingEnabled = true;
-            this.cb_malop.Location = new System.Drawing.Point(114, 42);
-            this.cb_malop.Name = "cb_malop";
-            this.cb_malop.Size = new System.Drawing.Size(101, 21);
-            this.cb_malop.TabIndex = 114;
-            // 
-            // date_ngaysinh
-            // 
-            this.date_ngaysinh.EditValue = null;
-            this.date_ngaysinh.Location = new System.Drawing.Point(114, 181);
-            this.date_ngaysinh.Name = "date_ngaysinh";
-            this.date_ngaysinh.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.date_ngaysinh.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.date_ngaysinh.Size = new System.Drawing.Size(100, 20);
-            this.date_ngaysinh.TabIndex = 115;
             // 
             // QLHocSinh
             // 
@@ -713,6 +721,10 @@
         private DevExpress.XtraEditors.SimpleButton button_luu;
         private DevExpress.XtraEditors.SimpleButton button_xoa;
         private DevExpress.XtraEditors.SimpleButton button_huy;
+        private DevExpress.XtraEditors.TextEdit text_hohocsinh;
+        private System.Windows.Forms.ComboBox cb_malop;
+        private DevExpress.XtraEditors.DateEdit date_ngaysinh;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column19;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
@@ -731,8 +743,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column16;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column17;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column18;
-        private DevExpress.XtraEditors.TextEdit text_hohocsinh;
-        private System.Windows.Forms.ComboBox cb_malop;
-        private DevExpress.XtraEditors.DateEdit date_ngaysinh;
     }
 }

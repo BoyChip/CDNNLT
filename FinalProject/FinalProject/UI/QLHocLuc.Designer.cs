@@ -34,10 +34,6 @@
             this.button_huy = new DevExpress.XtraEditors.SimpleButton();
             this.button_xoa = new DevExpress.XtraEditors.SimpleButton();
             this.button_them = new DevExpress.XtraEditors.SimpleButton();
-            this.cb_mahocsinh = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.cb_hocluc = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.cb_hocky = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.cb_namhoc = new DevExpress.XtraEditors.ComboBoxEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
@@ -49,10 +45,10 @@
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.cb_mahocsinh.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cb_hocluc.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cb_hocky.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cb_namhoc.Properties)).BeginInit();
+            this.cb_mahocsinh = new System.Windows.Forms.ComboBox();
+            this.cb_hocluc = new System.Windows.Forms.ComboBox();
+            this.cb_hocky = new System.Windows.Forms.ComboBox();
+            this.cb_namhoc = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
@@ -110,42 +106,6 @@
             this.button_them.Text = "Thêm";
             this.button_them.Click += new System.EventHandler(this.button_them_Click);
             // 
-            // cb_mahocsinh
-            // 
-            this.cb_mahocsinh.Location = new System.Drawing.Point(76, 64);
-            this.cb_mahocsinh.Name = "cb_mahocsinh";
-            this.cb_mahocsinh.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cb_mahocsinh.Size = new System.Drawing.Size(100, 20);
-            this.cb_mahocsinh.TabIndex = 6;
-            // 
-            // cb_hocluc
-            // 
-            this.cb_hocluc.Location = new System.Drawing.Point(65, 117);
-            this.cb_hocluc.Name = "cb_hocluc";
-            this.cb_hocluc.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cb_hocluc.Size = new System.Drawing.Size(133, 20);
-            this.cb_hocluc.TabIndex = 7;
-            // 
-            // cb_hocky
-            // 
-            this.cb_hocky.Location = new System.Drawing.Point(65, 71);
-            this.cb_hocky.Name = "cb_hocky";
-            this.cb_hocky.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cb_hocky.Size = new System.Drawing.Size(133, 20);
-            this.cb_hocky.TabIndex = 8;
-            // 
-            // cb_namhoc
-            // 
-            this.cb_namhoc.Location = new System.Drawing.Point(65, 33);
-            this.cb_namhoc.Name = "cb_namhoc";
-            this.cb_namhoc.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cb_namhoc.Size = new System.Drawing.Size(133, 20);
-            this.cb_namhoc.TabIndex = 9;
-            // 
             // labelControl1
             // 
             this.labelControl1.Location = new System.Drawing.Point(5, 67);
@@ -190,12 +150,12 @@
             // 
             // groupControl2
             // 
+            this.groupControl2.Controls.Add(this.cb_hocluc);
+            this.groupControl2.Controls.Add(this.cb_hocky);
+            this.groupControl2.Controls.Add(this.cb_namhoc);
             this.groupControl2.Controls.Add(this.labelControl4);
             this.groupControl2.Controls.Add(this.labelControl3);
             this.groupControl2.Controls.Add(this.labelControl2);
-            this.groupControl2.Controls.Add(this.cb_namhoc);
-            this.groupControl2.Controls.Add(this.cb_hocky);
-            this.groupControl2.Controls.Add(this.cb_hocluc);
             this.groupControl2.Location = new System.Drawing.Point(558, 0);
             this.groupControl2.Name = "groupControl2";
             this.groupControl2.Size = new System.Drawing.Size(230, 166);
@@ -204,6 +164,8 @@
             // 
             // data_view
             // 
+            this.data_view.AllowUserToAddRows = false;
+            this.data_view.AllowUserToDeleteRows = false;
             this.data_view.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.data_view.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
@@ -241,6 +203,48 @@
             this.Column4.HeaderText = "Năm học";
             this.Column4.Name = "Column4";
             // 
+            // cb_mahocsinh
+            // 
+            this.cb_mahocsinh.FormattingEnabled = true;
+            this.cb_mahocsinh.Location = new System.Drawing.Point(67, 64);
+            this.cb_mahocsinh.Name = "cb_mahocsinh";
+            this.cb_mahocsinh.Size = new System.Drawing.Size(121, 21);
+            this.cb_mahocsinh.TabIndex = 11;
+            // 
+            // cb_hocluc
+            // 
+            this.cb_hocluc.FormattingEnabled = true;
+            this.cb_hocluc.Items.AddRange(new object[] {
+            "Giỏi",
+            "Khá",
+            "Trung bình",
+            "Yếu",
+            "Kém"});
+            this.cb_hocluc.Location = new System.Drawing.Point(65, 112);
+            this.cb_hocluc.Name = "cb_hocluc";
+            this.cb_hocluc.Size = new System.Drawing.Size(121, 21);
+            this.cb_hocluc.TabIndex = 13;
+            // 
+            // cb_hocky
+            // 
+            this.cb_hocky.FormattingEnabled = true;
+            this.cb_hocky.Items.AddRange(new object[] {
+            "1",
+            "2"});
+            this.cb_hocky.Location = new System.Drawing.Point(65, 71);
+            this.cb_hocky.Name = "cb_hocky";
+            this.cb_hocky.Size = new System.Drawing.Size(121, 21);
+            this.cb_hocky.TabIndex = 14;
+            // 
+            // cb_namhoc
+            // 
+            this.cb_namhoc.BackColor = System.Drawing.SystemColors.Window;
+            this.cb_namhoc.FormattingEnabled = true;
+            this.cb_namhoc.Location = new System.Drawing.Point(65, 36);
+            this.cb_namhoc.Name = "cb_namhoc";
+            this.cb_namhoc.Size = new System.Drawing.Size(121, 21);
+            this.cb_namhoc.TabIndex = 15;
+            // 
             // QLHocLuc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -257,10 +261,6 @@
             this.Name = "QLHocLuc";
             this.Text = "Học Lực";
             this.Load += new System.EventHandler(this.QLHocLuc_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.cb_mahocsinh.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cb_hocluc.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cb_hocky.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cb_namhoc.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();
@@ -279,10 +279,6 @@
         private DevExpress.XtraEditors.SimpleButton button_huy;
         private DevExpress.XtraEditors.SimpleButton button_xoa;
         private DevExpress.XtraEditors.SimpleButton button_them;
-        private DevExpress.XtraEditors.ComboBoxEdit cb_mahocsinh;
-        private DevExpress.XtraEditors.ComboBoxEdit cb_hocluc;
-        private DevExpress.XtraEditors.ComboBoxEdit cb_hocky;
-        private DevExpress.XtraEditors.ComboBoxEdit cb_namhoc;
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.LabelControl labelControl3;
@@ -294,5 +290,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.ComboBox cb_mahocsinh;
+        private System.Windows.Forms.ComboBox cb_hocluc;
+        private System.Windows.Forms.ComboBox cb_hocky;
+        private System.Windows.Forms.ComboBox cb_namhoc;
     }
 }

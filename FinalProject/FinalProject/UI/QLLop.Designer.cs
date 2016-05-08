@@ -30,6 +30,13 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(QLLop));
             this.data_view = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button_luu = new DevExpress.XtraEditors.SimpleButton();
             this.button_sua = new DevExpress.XtraEditors.SimpleButton();
             this.button_them = new DevExpress.XtraEditors.SimpleButton();
@@ -46,18 +53,11 @@
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
-            this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cb_namhoc = new System.Windows.Forms.ComboBox();
             this.cb_hocky = new System.Windows.Forms.ComboBox();
-            this.cb_makhoi = new System.Windows.Forms.ComboBox();
+            this.cb_namhoc = new System.Windows.Forms.ComboBox();
+            this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
             this.cb_magiaovien = new System.Windows.Forms.ComboBox();
+            this.cb_makhoi = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.data_view)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.text_siso.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.text_malop.Properties)).BeginInit();
@@ -70,6 +70,8 @@
             // 
             // data_view
             // 
+            this.data_view.AllowUserToAddRows = false;
+            this.data_view.AllowUserToDeleteRows = false;
             this.data_view.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.data_view.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
@@ -85,6 +87,48 @@
             this.data_view.Size = new System.Drawing.Size(933, 274);
             this.data_view.TabIndex = 0;
             this.data_view.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.data_view_RowEnter);
+            // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "MALOP";
+            this.Column1.HeaderText = "Mã lớp";
+            this.Column1.Name = "Column1";
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "MAKHOI";
+            this.Column2.HeaderText = "Mã khối";
+            this.Column2.Name = "Column2";
+            // 
+            // Column3
+            // 
+            this.Column3.DataPropertyName = "TENLOP";
+            this.Column3.HeaderText = "Tên lớp";
+            this.Column3.Name = "Column3";
+            // 
+            // Column4
+            // 
+            this.Column4.DataPropertyName = "MAGIAOVIEN";
+            this.Column4.HeaderText = "Mã giáo viên";
+            this.Column4.Name = "Column4";
+            // 
+            // Column5
+            // 
+            this.Column5.DataPropertyName = "SISO";
+            this.Column5.HeaderText = "Sỉ số";
+            this.Column5.Name = "Column5";
+            // 
+            // Column6
+            // 
+            this.Column6.DataPropertyName = "HOCKY";
+            this.Column6.HeaderText = "Học kỳ";
+            this.Column6.Name = "Column6";
+            // 
+            // Column7
+            // 
+            this.Column7.DataPropertyName = "NAMHOC";
+            this.Column7.HeaderText = "Năm học";
+            this.Column7.Name = "Column7";
             // 
             // button_luu
             // 
@@ -225,6 +269,25 @@
             this.groupControl1.TabIndex = 21;
             this.groupControl1.Text = "Năm- Học Kỳ";
             // 
+            // cb_hocky
+            // 
+            this.cb_hocky.FormattingEnabled = true;
+            this.cb_hocky.Items.AddRange(new object[] {
+            "1",
+            "2"});
+            this.cb_hocky.Location = new System.Drawing.Point(80, 84);
+            this.cb_hocky.Name = "cb_hocky";
+            this.cb_hocky.Size = new System.Drawing.Size(121, 21);
+            this.cb_hocky.TabIndex = 22;
+            // 
+            // cb_namhoc
+            // 
+            this.cb_namhoc.FormattingEnabled = true;
+            this.cb_namhoc.Location = new System.Drawing.Point(80, 39);
+            this.cb_namhoc.Name = "cb_namhoc";
+            this.cb_namhoc.Size = new System.Drawing.Size(121, 21);
+            this.cb_namhoc.TabIndex = 21;
+            // 
             // groupControl2
             // 
             this.groupControl2.Controls.Add(this.cb_magiaovien);
@@ -243,63 +306,13 @@
             this.groupControl2.TabIndex = 22;
             this.groupControl2.Text = "Thông Tin Lớp";
             // 
-            // Column1
+            // cb_magiaovien
             // 
-            this.Column1.DataPropertyName = "MALOP";
-            this.Column1.HeaderText = "Mã lớp";
-            this.Column1.Name = "Column1";
-            // 
-            // Column2
-            // 
-            this.Column2.DataPropertyName = "MAKHOI";
-            this.Column2.HeaderText = "Mã khối";
-            this.Column2.Name = "Column2";
-            // 
-            // Column3
-            // 
-            this.Column3.DataPropertyName = "TENLOP";
-            this.Column3.HeaderText = "Tên lớp";
-            this.Column3.Name = "Column3";
-            // 
-            // Column4
-            // 
-            this.Column4.DataPropertyName = "MAGIAOVIEN";
-            this.Column4.HeaderText = "Mã giáo viên";
-            this.Column4.Name = "Column4";
-            // 
-            // Column5
-            // 
-            this.Column5.DataPropertyName = "SISO";
-            this.Column5.HeaderText = "Sỉ số";
-            this.Column5.Name = "Column5";
-            // 
-            // Column6
-            // 
-            this.Column6.DataPropertyName = "HOCKY";
-            this.Column6.HeaderText = "Học kỳ";
-            this.Column6.Name = "Column6";
-            // 
-            // Column7
-            // 
-            this.Column7.DataPropertyName = "NAMHOC";
-            this.Column7.HeaderText = "Năm học";
-            this.Column7.Name = "Column7";
-            // 
-            // cb_namhoc
-            // 
-            this.cb_namhoc.FormattingEnabled = true;
-            this.cb_namhoc.Location = new System.Drawing.Point(80, 39);
-            this.cb_namhoc.Name = "cb_namhoc";
-            this.cb_namhoc.Size = new System.Drawing.Size(121, 21);
-            this.cb_namhoc.TabIndex = 21;
-            // 
-            // cb_hocky
-            // 
-            this.cb_hocky.FormattingEnabled = true;
-            this.cb_hocky.Location = new System.Drawing.Point(80, 84);
-            this.cb_hocky.Name = "cb_hocky";
-            this.cb_hocky.Size = new System.Drawing.Size(121, 21);
-            this.cb_hocky.TabIndex = 22;
+            this.cb_magiaovien.FormattingEnabled = true;
+            this.cb_magiaovien.Location = new System.Drawing.Point(81, 107);
+            this.cb_magiaovien.Name = "cb_magiaovien";
+            this.cb_magiaovien.Size = new System.Drawing.Size(121, 21);
+            this.cb_magiaovien.TabIndex = 23;
             // 
             // cb_makhoi
             // 
@@ -308,14 +321,6 @@
             this.cb_makhoi.Name = "cb_makhoi";
             this.cb_makhoi.Size = new System.Drawing.Size(121, 21);
             this.cb_makhoi.TabIndex = 22;
-            // 
-            // cb_magiaovien
-            // 
-            this.cb_magiaovien.FormattingEnabled = true;
-            this.cb_magiaovien.Location = new System.Drawing.Point(81, 107);
-            this.cb_magiaovien.Name = "cb_magiaovien";
-            this.cb_magiaovien.Size = new System.Drawing.Size(121, 21);
-            this.cb_magiaovien.TabIndex = 23;
             // 
             // QLLop
             // 

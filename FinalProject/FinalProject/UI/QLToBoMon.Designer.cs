@@ -53,7 +53,7 @@
             this.Column2});
             this.data_view.Location = new System.Drawing.Point(131, 92);
             this.data_view.Name = "data_view";
-            this.data_view.Size = new System.Drawing.Size(240, 150);
+            this.data_view.Size = new System.Drawing.Size(407, 150);
             this.data_view.TabIndex = 0;
             this.data_view.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.data_view_RowEnter);
             // 
@@ -140,7 +140,7 @@
             // 
             // Column2
             // 
-            this.Column2.DataPropertyName = "TENTOBOMON";
+            this.Column2.DataPropertyName = "TENBOMON";
             this.Column2.HeaderText = "Tên tổ bộ môn";
             this.Column2.Name = "Column2";
             // 

@@ -122,9 +122,9 @@
             this.Column13,
             this.Column14});
             this.data_view.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.data_view.Location = new System.Drawing.Point(0, 346);
+            this.data_view.Location = new System.Drawing.Point(0, 389);
             this.data_view.Name = "data_view";
-            this.data_view.Size = new System.Drawing.Size(1059, 322);
+            this.data_view.Size = new System.Drawing.Size(1059, 279);
             this.data_view.TabIndex = 0;
             this.data_view.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.data_view_RowEnter);
             // 
@@ -509,7 +509,7 @@
             this.groupControl1.Controls.Add(this.labelControl6);
             this.groupControl1.Location = new System.Drawing.Point(0, 0);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(701, 269);
+            this.groupControl1.Size = new System.Drawing.Size(713, 256);
             this.groupControl1.TabIndex = 46;
             this.groupControl1.Text = "Thông Tin Cá Nhân";
             // 
@@ -543,7 +543,7 @@
             this.groupControl3.Controls.Add(this.button_xoa);
             this.groupControl3.Controls.Add(this.button_huy);
             this.groupControl3.Controls.Add(this.button_luu);
-            this.groupControl3.Location = new System.Drawing.Point(0, 275);
+            this.groupControl3.Location = new System.Drawing.Point(25, 275);
             this.groupControl3.Name = "groupControl3";
             this.groupControl3.ShowCaption = false;
             this.groupControl3.Size = new System.Drawing.Size(573, 65);

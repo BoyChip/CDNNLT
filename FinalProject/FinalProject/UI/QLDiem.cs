@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using FinalProject.Business;
 using FinalProject.Entities;
+using System.Globalization;
+
 
 namespace FinalProject.UI
 {
@@ -32,6 +34,22 @@ namespace FinalProject.UI
         {
             DiemBLL _Diem = new DiemBLL();
             data_view.DataSource = _Diem.getData();
+
+            HocSinhBLL _HocSinh = new HocSinhBLL();
+            cb_mahocsinh.DataSource = _HocSinh.getData();
+            cb_mahocsinh.DisplayMember = "MAHOCSINH";
+            cb_mahocsinh.ValueMember = "MAHOCSINH";
+
+            HocKyNamHocBLL _HocKy_NamHoc = new HocKyNamHocBLL();
+            cb_namhoc.DataSource = _HocKy_NamHoc.getData();
+            cb_namhoc.DisplayMember = "NAMHOC";
+            cb_namhoc.ValueMember = "NAMHOC";
+
+            MonHocBLL _MonHoc = new MonHocBLL();
+            cb_mamon.DataSource = _MonHoc.getData();
+            cb_mamon.DisplayMember = "MAMON";
+            cb_mamon.ValueMember = "MAMON";
+
         }
 
         private void button_them_Click(object sender, EventArgs e)
@@ -42,8 +60,8 @@ namespace FinalProject.UI
             cb_mamon.Text = "";
             cb_hocky.Text = "";
             cb_namhoc.Text = "";
-            text_diemso.Text = "";
-            cb_hesodiem.Text = "";
+            text_diemso.Text = "0";
+            cb_hesodiem.Text = "0";
 
             cb_mahocsinh.Enabled = true;
             cb_mahocsinh.Focus();
@@ -77,15 +95,24 @@ namespace FinalProject.UI
 
         private void data_view_RowEnter(object sender, DataGridViewCellEventArgs e)
         {
-            int index = e.RowIndex;
-            /*
-            cb_mahocsinh.Text = data_view["Column1", index].Value.ToString();
-            cb_mamon.Text = data_view["Column2", index].Value.ToString();
-            cb_hocky.Text = data_view["Column3", index].Value.ToString();
-            cb_namhoc.Text = data_view["Column4", index].Value.ToString();
-            text_diemso.Text = data_view["Column5", index].Value.ToString();
-            cb_hesodiem.Text = data_view["Column6", index].Value.ToString();
-             */
+            DiemBLL _Diem = new DiemBLL();
+            int count = _Diem.Count_Data_Rows();
+            if (count == 0)
+            {
+
+            }
+            else
+            {
+                int index = e.RowIndex;
+
+                cb_mahocsinh.Text = data_view["Column1", index].Value.ToString();
+                cb_mamon.Text = data_view["Column2", index].Value.ToString();
+                cb_hocky.Text = data_view["Column3", index].Value.ToString();
+                cb_namhoc.Text = data_view["Column4", index].Value.ToString();
+                text_diemso.Text = data_view["Column5", index].Value.ToString();
+                cb_hesodiem.Text = data_view["Column6", index].Value.ToString();
+            }
+
         }
 
         private void Excute(string strQuery)
@@ -99,14 +126,45 @@ namespace FinalProject.UI
                     obj_Diem.MaMonHoc = cb_mamon.Text.Trim();
                     obj_Diem.HocKy = cb_hocky.Text.Trim();
                     obj_Diem.NamHoc = cb_namhoc.Text.Trim();
-                    obj_Diem.DiemMon = Convert.ToInt32(text_diemso.Text);
+                    obj_Diem.DiemMon = float.Parse(text_diemso.Text, CultureInfo.InvariantCulture.NumberFormat);
                     obj_Diem.HeSoDiem = Convert.ToInt32(cb_hesodiem.Text);
 
+                    string _maHocSinh = cb_mahocsinh.Text.Trim();
+                    float _diemso = float.Parse(text_diemso.Text, CultureInfo.InvariantCulture.NumberFormat);
+                    float _heso = Convert.ToInt32(cb_hesodiem.Text);
+
                     DiemBLL _Diem = new DiemBLL();
-                    _Diem.Insert(obj_Diem);
-                    Load_data();
+
+                    if (cb_hocky.Text.Length == 0 || cb_namhoc.Text.Length == 0)
+                    {
+                        MessageBox.Show("Chưa nhập học kỳ hoặc năm học!", "Thông báo!", MessageBoxButtons.OK);
+                    }
+                    else if (cb_mamon.Text.Length == 0)
+                    {
+                        MessageBox.Show("Chưa nhập môn học!", "Thông báo!", MessageBoxButtons.OK);
+                    }
+                    else if (cb_mahocsinh.Text.Length == 0)
+                    {
+                        MessageBox.Show("Chưa nhập mã học sinh!", "Thông báo!", MessageBoxButtons.OK);
+                    }
+                    else
+                        if (_diemso < 0 || _diemso > 10 || _heso <= 0 || _heso > 3)
+                        {
+                            MessageBox.Show("Thông tin về điểm số và hệ số không phù hợp!", "Thông báo!", MessageBoxButtons.OK);
+                        }
+                        else
+
+                            if ((_Diem.CheckID(_maHocSinh)))
+                            {
+                                _Diem.Insert(obj_Diem);
+                                Load_data();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Không có học sinh này!", "Thông báo!", MessageBoxButtons.OK);
+                            }
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     MessageBox.Show("Them bi loi: " + ex.Message.ToString(), "Thong bao", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
