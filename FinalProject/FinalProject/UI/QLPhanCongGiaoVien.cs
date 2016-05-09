@@ -32,6 +32,26 @@ namespace FinalProject.UI
         {
             PhanCongGiaoVienBLL _PhanCong = new PhanCongGiaoVienBLL();
             data_view.DataSource = _PhanCong.getData();
+
+            GiaoVienBLL _GiaoVien = new GiaoVienBLL();
+            cb_magiaovien.DataSource = _GiaoVien.getData();
+            cb_magiaovien.DisplayMember = "MAGIAOVIEN";
+            cb_magiaovien.ValueMember = "MAGIAOVIEN";
+
+            MonHocBLL _MonHoc = new MonHocBLL();
+            cb_mamon.DataSource = _MonHoc.getData();
+            cb_mamon.DisplayMember = "MAMON";
+            cb_mamon.ValueMember = "MAMON";
+
+            LopBLL _Lop = new LopBLL();
+            cb_malop.DataSource = _Lop.getData();
+            cb_malop.DisplayMember = "MALOP";
+            cb_malop.ValueMember = "MALOP";
+
+            HocKyNamHocBLL _HocKy_NamHoc = new HocKyNamHocBLL();
+            cb_namhoc.DataSource = _HocKy_NamHoc.getData();
+            cb_namhoc.DisplayMember = "NAMHOC";
+            cb_namhoc.ValueMember = "NAMHOC";
         }
 
         private void button_them_Click(object sender, EventArgs e)
@@ -57,8 +77,11 @@ namespace FinalProject.UI
 
         private void button_xoa_Click(object sender, EventArgs e)
         {
-            Query = "delete";
-            Excute(Query);
+            if (DevExpress.XtraEditors.XtraMessageBox.Show("Bạn có chắc chắn muốn xóa? Bạn sẽ không thể phục hồi dữ liệu đã bị xóa!", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                Query = "delete";
+                Excute(Query);
+            }
         }
 
         private void button_luu_Click(object sender, EventArgs e)
@@ -74,14 +97,23 @@ namespace FinalProject.UI
 
         private void data_view_RowEnter(object sender, DataGridViewCellEventArgs e)
         {
-            int index = e.RowIndex;
-            /*
-            cb_magiaovien.Text = data_view["Column1", index].Value.ToString();
-            cb_mamon.Text = data_view["Column2", index].Value.ToString();
-            cb_malop.Text = data_view["Column3", index].Value.ToString();
-            cb_hocky.Text = data_view["Column4", index].Value.ToString();
-            cb_namhoc.Text = data_view["Column5", index].Value.ToString();
-             */ 
+            PhanCongGiaoVienBLL _PhanCong = new PhanCongGiaoVienBLL();
+            int count = _PhanCong.Count_Data_Rows();
+            if (count == 0)
+            {
+
+            }
+            else
+            {
+                int index = e.RowIndex;
+
+                cb_magiaovien.Text = data_view["Column1", index].Value.ToString();
+                cb_mamon.Text = data_view["Column2", index].Value.ToString();
+                cb_malop.Text = data_view["Column3", index].Value.ToString();
+                cb_hocky.Text = data_view["Column4", index].Value.ToString();
+                cb_namhoc.Text = data_view["Column5", index].Value.ToString();
+
+            }
         }
 
         private void Excute(string strQuery)
@@ -98,13 +130,43 @@ namespace FinalProject.UI
                     obj_PhanCong.NamHoc = cb_namhoc.Text.Trim();
 
 
+                    string _maGiaoVien = cb_magiaovien.Text.Trim();
+                    string _maLop = cb_malop.Text.Trim();
+                    string _maMon = cb_mamon.Text.Trim();
+                    string _hocKy = cb_hocky.Text.Trim();
+                    string _namHoc = cb_namhoc.Text.Trim();
+
                     PhanCongGiaoVienBLL _PhanCong = new PhanCongGiaoVienBLL();
-                    _PhanCong.Insert(obj_PhanCong);
-                    Load_data();
+                    if (cb_magiaovien.Text.Length == 0)
+                    {
+                        DevExpress.XtraEditors.XtraMessageBox.Show("Chưa nhập mã giáo viên!", "Thông báo!", MessageBoxButtons.OK);
+                    }
+                    else if (cb_malop.Text.Length == 0)
+                    {
+                        DevExpress.XtraEditors.XtraMessageBox.Show("Chưa nhập mã lớp!", "Thông báo!", MessageBoxButtons.OK);
+                    }
+                    else if (cb_mamon.Text.Length == 0)
+                    {
+                        DevExpress.XtraEditors.XtraMessageBox.Show("Chưa nhập mã môn!", "Thông báo!", MessageBoxButtons.OK);
+                    }
+                    else if (cb_hocky.Text.Length == 0 || cb_namhoc.Text.Length == 0)
+                    {
+                        DevExpress.XtraEditors.XtraMessageBox.Show("Chưa nhập học kỳ - năm học!", "Thông báo!", MessageBoxButtons.OK);
+                    }
+                    else if (!(_PhanCong.CheckID(_maGiaoVien, _maLop, _maMon, _hocKy, _namHoc)))
+                    {
+                        _PhanCong.Insert(obj_PhanCong);
+                        Load_data();
+                    }
+                    else
+                    {
+                        DevExpress.XtraEditors.XtraMessageBox.Show("Thông tin đã tồn tại!", "Thông báo!", MessageBoxButtons.OK);
+                    }
+
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Them bi loi: " + ex.Message.ToString(), "Thong bao", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    DevExpress.XtraEditors.XtraMessageBox.Show("Thêm bị lỗi: " + ex.Message.ToString(), "Thông báo!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
             if (strQuery == "edit")
@@ -118,14 +180,14 @@ namespace FinalProject.UI
                     obj_PhanCong.HocKy = cb_hocky.Text.Trim();
                     obj_PhanCong.NamHoc = cb_namhoc.Text.Trim();
 
-
                     PhanCongGiaoVienBLL _PhanCong = new PhanCongGiaoVienBLL();
                     _PhanCong.Update(obj_PhanCong);
                     Load_data();
+
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Sua bi loi: " + ex.Message.ToString(), "Thong bao", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    DevExpress.XtraEditors.XtraMessageBox.Show("Sửa bị lỗi: " + ex.Message.ToString(), "Thông báo!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
             if (strQuery == "delete")
@@ -139,14 +201,14 @@ namespace FinalProject.UI
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Xóa bị lỗi: " + ex.Message.ToString(), "Thong bao", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    DevExpress.XtraEditors.XtraMessageBox.Show("Xóa bị lỗi: " + ex.Message.ToString(), "Thông báo!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
         }
         private void ControlButton(bool type)
         {
             this.button_them.Enabled = button_sua.Enabled = button_xoa.Enabled = type;
-            button_luu.Enabled = button_huy.Enabled = !type;
+            button_luu.Enabled = button_huy.Enabled = group_thongtin.Enabled = group_phanlop.Enabled = !type;
         }
     }
 }

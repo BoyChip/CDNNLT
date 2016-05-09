@@ -80,7 +80,7 @@
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1});
             this.ribbonControl1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2013;
-            this.ribbonControl1.Size = new System.Drawing.Size(1244, 144);
+            this.ribbonControl1.Size = new System.Drawing.Size(807, 144);
             this.ribbonControl1.ToolbarLocation = DevExpress.XtraBars.Ribbon.RibbonQuickAccessToolbarLocation.Above;
             // 
             // button_qlHocSinh
@@ -277,13 +277,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1244, 403);
+            this.ClientSize = new System.Drawing.Size(807, 403);
             this.Controls.Add(this.ribbonControl1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.Name = "GiaoDienChinh";
             this.Ribbon = this.ribbonControl1;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "QUẢN LÝ ĐIỂM";
+            this.Text = "GIAO DIEN CHINH";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager1)).EndInit();

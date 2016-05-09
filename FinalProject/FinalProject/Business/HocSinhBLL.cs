@@ -43,6 +43,18 @@ namespace FinalProject.Business
             return false;
         }
 
+        //diem so luong phan tu co trong csdl 
+        public int Count_Data_Rows()
+        {
+            int result = 0;
+            DataConfig config = new DataConfig();
+            string strQuery = "select * from dbo.hocsinh ";
+            DataTable dt = new DataTable();
+            dt = config.GetDataTable(strQuery);
+            result = dt.Rows.Count;         
+            return result;
+        }
+
         //tim kiem hoc sinh trong lop
         public int TimLopCuaHocSinh(string _maLop)
         {
@@ -59,7 +71,7 @@ namespace FinalProject.Business
         {
             DataTable result = new DataTable();
             DataConfig config = new DataConfig();
-            string strQuery = "select * from dbo.hocsinh where MAHOCSINH like '%" + item + "%'";
+            string strQuery = "select * from dbo.hocsinh where MAHOCSINH like '%" + item + "%' or HOHOCSINH = '"+item+"' or TENHOCSINH = '"+item+"' or GIOITINH = '"+item+"' or NOISINH = '"+item+"'";
             result = config.GetDataTable(strQuery);
             return result;
         }

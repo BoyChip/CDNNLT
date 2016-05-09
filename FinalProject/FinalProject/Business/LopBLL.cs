@@ -43,6 +43,17 @@ namespace FinalProject.Business
             return false;
         }
 
+        // cau lenh tim kiem
+        public DataTable FindItem(string item)
+        {
+            DataTable result = new DataTable();
+            DataConfig config = new DataConfig();
+            string strQuery = "select * from dbo.lop where MALOP like '%" + item + "%' or TENLOP = '"+item+"' or MAKHOI = '"+item+"'";
+            result = config.GetDataTable(strQuery);
+            return result;
+        }
+    
+
         // cau lenh update
         public int Update(LopEntities obj)
         {

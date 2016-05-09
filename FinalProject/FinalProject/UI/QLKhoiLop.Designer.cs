@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(QLKhoiLop));
             this.data_view = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -66,6 +67,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(244, 159);
             this.Controls.Add(this.data_view);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "QLKhoiLop";
             this.Text = "Khối Lớp";
             this.Load += new System.EventHandler(this.QLKhoiLop_Load);

@@ -59,7 +59,7 @@ namespace FinalProject.Business
         public int Update(ToBoMonEntities obj)
         {
             int result = 0;
-            string strQuery = "update dbo.tobomon set  tenbomon =N '" + obj.TenBoMon + "' where matobomon = '" + obj.MaToBoMon + "'";
+            string strQuery = "update dbo.tobomon set  tenbomon = N'" + obj.TenBoMon + "' where matobomon = '" + obj.MaToBoMon + "'";
             DataConfig config = new DataConfig();
             result = config.executeNoneQuery(strQuery);
             return result;

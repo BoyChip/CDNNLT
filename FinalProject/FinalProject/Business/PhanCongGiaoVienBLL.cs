@@ -31,15 +31,27 @@ namespace FinalProject.Business
             return result;
         }
         // check ID 
-        public bool CheckID(string _maGiaoVien)
+        public bool CheckID(string _maGiaoVien, string _maLop, string _maMon, string _hocKy, string _namHoc)
         {
             DataConfig config = new DataConfig();
-            string strQuery = "select * from dbo.phanconggiaovien where magiaovien = '" + _maGiaoVien + "'";
+            string strQuery = "select * from dbo.phanconggiaovien where magiaovien = '" + _maGiaoVien + "' and malop = '"+_maLop+"' and mamon ='"+_maMon+"' and hocky = '"+_hocKy+"' and namhoc = '"+_namHoc+"'";
             DataTable dt = new DataTable();
             dt = config.GetDataTable(strQuery);
             if (dt.Rows.Count > 0)
                 return true;
             return false;
+        }
+
+        //diem so luong co trong csdl
+        public int  Count_Data_Rows()
+        {
+            int result = 0;
+            DataConfig config = new DataConfig();
+            string strQuery = "select * from dbo.phanconggiaovien";
+            DataTable dt = new DataTable();
+            dt = config.GetDataTable(strQuery);
+            result = dt.Rows.Count;
+            return result;
         }
 
         // cau lenh update

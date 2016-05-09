@@ -53,6 +53,7 @@ namespace FinalProject.UI
 
         private void button_them_Click(object sender, EventArgs e)
         {
+            ControlButton(false);
             Query = "add";
             text_malop.Text = "";
             cb_makhoi.Text = "";
@@ -64,7 +65,7 @@ namespace FinalProject.UI
 
             text_malop.Enabled = true;
             text_malop.Focus();
-            ControlButton(false); 
+
         }
 
         private void button_sua_Click(object sender, EventArgs e)
@@ -77,18 +78,31 @@ namespace FinalProject.UI
 
         private void button_xoa_Click(object sender, EventArgs e)
         {
-            Query = "delete";
-            Excute(Query);
+            if (DevExpress.XtraEditors.XtraMessageBox.Show("Bạn có chắc chắn muốn xóa? Bạn sẽ không thể phục hồi dữ liệu đã bị xóa!", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                Query = "delete";
+                Excute(Query);
+                text_malop.Text = "";
+                cb_makhoi.Text = "";
+                text_tenlop.Text = "";
+                cb_magiaovien.Text = "";
+                text_siso.Text = "0";
+                cb_hocky.Text = "";
+                cb_namhoc.Text = "";
+                Load_Data();
+            }
         }
 
         private void button_luu_Click(object sender, EventArgs e)
         {
             Excute(Query);
+            Load_Data();
             ControlButton(true);
         }
 
         private void button_huy_Click(object sender, EventArgs e)
         {
+            Load_Data();
             ControlButton(true);
         }
 
@@ -106,7 +120,7 @@ namespace FinalProject.UI
 
         private void Excute(string strQuery)
         {
-            if (strQuery =="add")
+            if (strQuery == "add")
             {
                 try
                 {
@@ -123,7 +137,8 @@ namespace FinalProject.UI
                     {
                         DevExpress.XtraEditors.XtraMessageBox.Show("Mã khối, học kỳ - năm học không được bõ trống!", "Thông báo!", MessageBoxButtons.OK);
                     }
-                    else {
+                    else
+                    {
                         LopBLL _Lop = new LopBLL();
                         _Lop.Insert(obj_Lop);
                         Load_Data();
@@ -131,7 +146,7 @@ namespace FinalProject.UI
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Them bi loi: " + ex.Message.ToString(), "Thong bao", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    DevExpress.XtraEditors.XtraMessageBox.Show("Thêm bị lỗi: " + ex.Message.ToString(), "Thông báo!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
 
@@ -152,9 +167,9 @@ namespace FinalProject.UI
                     _Lop.Update(obj_Lop);
                     Load_Data();
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
-                    MessageBox.Show("Sua bi loi: " + ex.Message.ToString(), "Thong bao", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    DevExpress.XtraEditors.XtraMessageBox.Show("Sửa bị lỗi: " + ex.Message.ToString(), "Thông báo!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
 
@@ -166,10 +181,10 @@ namespace FinalProject.UI
                     LopBLL _Lop = new LopBLL();
 
                     HocSinhBLL _HocSinh = new HocSinhBLL();
-                    int count  = _HocSinh.TimLopCuaHocSinh(_maLop);
-                    if ( count > 0 )
+                    int count = _HocSinh.TimLopCuaHocSinh(_maLop);
+                    if (count > 0)
                     {
-                        MessageBox.Show("Lop da co hoc sinh", "Thong bao", MessageBoxButtons.OK);
+                        DevExpress.XtraEditors.XtraMessageBox.Show("Lớp đã có học sinh! Bạn phải chuyển học sinh sang lớp khác mới có thể xóa lớp này!", "Thông báo!", MessageBoxButtons.OK);
                     }
                     else if (count == 0)
                     {
@@ -177,9 +192,9 @@ namespace FinalProject.UI
                         Load_Data();
                     }
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
-                    MessageBox.Show("Xóa bị lỗi: " + ex.Message.ToString(), "Thong bao", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    DevExpress.XtraEditors.XtraMessageBox.Show("Xóa bị lỗi: " + ex.Message.ToString(), "Thông báo!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
         }
@@ -187,7 +202,7 @@ namespace FinalProject.UI
         private void ControlButton(bool type)
         {
             this.button_them.Enabled = button_sua.Enabled = button_xoa.Enabled = type;
-            button_luu.Enabled = button_huy.Enabled = !type;
+            button_luu.Enabled = button_huy.Enabled = group_hocky_namhoc.Enabled = group_thongtin.Enabled = !type;
         }
 
     }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DangNhap));
             this.text_taikhoan = new DevExpress.XtraEditors.TextEdit();
             this.button_dangnhap = new DevExpress.XtraEditors.SimpleButton();
             this.button_thoat = new DevExpress.XtraEditors.SimpleButton();
@@ -36,9 +37,11 @@
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.text_matkhau = new System.Windows.Forms.TextBox();
             this.label_thongbao_dangnhap = new DevExpress.XtraEditors.LabelControl();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.text_taikhoan.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // text_taikhoan
@@ -91,7 +94,7 @@
             this.groupControl1.Controls.Add(this.labelControl1);
             this.groupControl1.Controls.Add(this.labelControl2);
             this.groupControl1.Controls.Add(this.text_taikhoan);
-            this.groupControl1.Location = new System.Drawing.Point(12, 106);
+            this.groupControl1.Location = new System.Drawing.Point(56, 196);
             this.groupControl1.Name = "groupControl1";
             this.groupControl1.Size = new System.Drawing.Size(390, 194);
             this.groupControl1.TabIndex = 7;
@@ -112,12 +115,24 @@
             this.label_thongbao_dangnhap.Size = new System.Drawing.Size(0, 13);
             this.label_thongbao_dangnhap.TabIndex = 7;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pictureBox1.Image = global::FinalProject.Properties.Resources._13148136_1007785276006441_1072605492_o;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(1166, 154);
+            this.pictureBox1.TabIndex = 8;
+            this.pictureBox1.TabStop = false;
+            // 
             // DangNhap
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(822, 411);
+            this.ClientSize = new System.Drawing.Size(1166, 411);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.groupControl1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "DangNhap";
             this.Text = "ĐĂNG NHẬP";
             this.Load += new System.EventHandler(this.DangNhap_Load);
@@ -125,6 +140,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -139,5 +155,6 @@
         private DevExpress.XtraEditors.GroupControl groupControl1;
         private DevExpress.XtraEditors.LabelControl label_thongbao_dangnhap;
         private System.Windows.Forms.TextBox text_matkhau;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

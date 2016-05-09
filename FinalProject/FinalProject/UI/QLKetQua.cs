@@ -46,6 +46,7 @@ namespace FinalProject.UI
 
         private void button_them_Click(object sender, EventArgs e)
         {
+            ControlButton(false);
             Query = "add";
 
             cb_mahocsinh.Text = "";
@@ -55,7 +56,7 @@ namespace FinalProject.UI
 
             cb_mahocsinh.Enabled = true;
             cb_mahocsinh.Focus();
-            ControlButton(false);
+
         }
 
         private void button_sua_Click(object sender, EventArgs e)
@@ -67,8 +68,17 @@ namespace FinalProject.UI
 
         private void button_xoa_Click(object sender, EventArgs e)
         {
-            Query = "delete";
-            Excute(Query);
+            if (DevExpress.XtraEditors.XtraMessageBox.Show("Bạn có chắc chắn muốn xóa? Bạn sẽ không thể phục hồi dữ liệu đã bị xóa!", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                Query = "delete";
+                Excute(Query);
+                cb_mahocsinh.Text = "";
+                cb_ketqua.Text = "";
+                cb_hocky.Text = "";
+                cb_namhoc.Text = "";
+                Load_data();
+            }
+
         }
 
         private void button_luu_Click(object sender, EventArgs e)
@@ -79,6 +89,7 @@ namespace FinalProject.UI
 
         private void button_huy_Click(object sender, EventArgs e)
         {
+            Load_data();
             ControlButton(true);
         }
 
@@ -93,11 +104,11 @@ namespace FinalProject.UI
             else
             {
                 int index = e.RowIndex;
-                
+
                 cb_mahocsinh.Text = data_view["Column1", index].Value.ToString();
                 cb_ketqua.Text = data_view["Column2", index].Value.ToString();
                 cb_hocky.Text = data_view["Column3", index].Value.ToString();
-                cb_namhoc.Text = data_view["Column4", index].Value.ToString();           
+                cb_namhoc.Text = data_view["Column4", index].Value.ToString();
             }
         }
 
@@ -120,32 +131,32 @@ namespace FinalProject.UI
 
                     if (cb_hocky.Text.Length == 0 || cb_namhoc.Text.Length == 0)
                     {
-                        MessageBox.Show("Chưa nhập học kỳ hoặc năm học!", "Thông báo!", MessageBoxButtons.OK);
+                        DevExpress.XtraEditors.XtraMessageBox.Show("Chưa nhập học kỳ hoặc năm học!", "Thông báo!", MessageBoxButtons.OK);
                     }
                     else if (cb_mahocsinh.Text.Length == 0)
                     {
-                        MessageBox.Show("Chưa nhập mã học sinh!", "Thông báo!", MessageBoxButtons.OK);
+                        DevExpress.XtraEditors.XtraMessageBox.Show("Chưa nhập mã học sinh!", "Thông báo!", MessageBoxButtons.OK);
                     }
                     else if (cb_ketqua.Text.Length == 0)
                     {
-                        MessageBox.Show("Chưa đánh giá xếp loại học sinh!", "Thông báo!", MessageBoxButtons.OK);
+                        DevExpress.XtraEditors.XtraMessageBox.Show("Chưa đánh giá xếp loại học sinh!", "Thông báo!", MessageBoxButtons.OK);
                     }
-                    else if (!(_KetQua.CheckID(_maHocSinh,_hocKy,_namHoc)))
+                    else if (!(_KetQua.CheckID(_maHocSinh, _hocKy, _namHoc)))
                     {
                         _KetQua.Insert(obj_KetQua);
                         Load_data();
                     }
                     else
                     {
-                        MessageBox.Show("Học sinh đã được đánh giá trong học kỳ này!", "Thông báo!", MessageBoxButtons.OK);
+                        DevExpress.XtraEditors.XtraMessageBox.Show("Học sinh đã được đánh giá trong học kỳ này!", "Thông báo!", MessageBoxButtons.OK);
                     }
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Them bi loi: " + ex.Message.ToString(), "Thong bao", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    DevExpress.XtraEditors.XtraMessageBox.Show("Thêm bị lỗi: " + ex.Message.ToString(), "Thông báo!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
-            if (strQuery =="edit")
+            if (strQuery == "edit")
             {
                 try
                 {
@@ -161,7 +172,7 @@ namespace FinalProject.UI
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Sua bi loi: " + ex.Message.ToString(), "Thong bao", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    DevExpress.XtraEditors.XtraMessageBox.Show("Sửa bị lỗi: " + ex.Message.ToString(), "Thông báo!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
             if (strQuery == "delete")
@@ -176,7 +187,7 @@ namespace FinalProject.UI
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Xóa bị lỗi: " + ex.Message.ToString(), "Thong bao", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    DevExpress.XtraEditors.XtraMessageBox.Show("Xóa bị lỗi: " + ex.Message.ToString(), "Thông báo!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
         }
@@ -184,7 +195,7 @@ namespace FinalProject.UI
         private void ControlButton(bool type)
         {
             this.button_them.Enabled = button_sua.Enabled = button_xoa.Enabled = type;
-            button_luu.Enabled = button_huy.Enabled = !type;
+            button_luu.Enabled = button_huy.Enabled = group_thongtin.Enabled = group_danhgia.Enabled = !type;
         }
 
     }

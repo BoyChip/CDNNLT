@@ -51,7 +51,7 @@ namespace FinalProject.UI
             }
             else
             {
-                MessageBox.Show("Tài khoản hoặc mật khẩu sai!", "Thông báo!", MessageBoxButtons.OK);
+                DevExpress.XtraEditors.XtraMessageBox.Show("Tài khoản hoặc mật khẩu sai!", "Thông báo!", MessageBoxButtons.OK);
                 this.text_taikhoan.Text = "";
                 this.text_matkhau.Text = "";
                 this.text_taikhoan.Focus();
@@ -64,7 +64,7 @@ namespace FinalProject.UI
 
         private void button_thoat_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Bạn có chắc chắn muốn thoát?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (DevExpress.XtraEditors.XtraMessageBox.Show("Bạn có chắc chắn muốn thoát?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 System.Windows.Forms.Application.Exit();
             }

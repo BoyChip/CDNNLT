@@ -36,6 +36,7 @@ namespace FinalProject.UI
 
         private void button_them_Click(object sender, EventArgs e)
         {
+            ControlButton(false);
             Query = "add";
 
             text_mamon.Text = "";
@@ -45,7 +46,6 @@ namespace FinalProject.UI
 
             text_mamon.Enabled = true;
             text_mamon.Focus();
-            ControlButton(false);
         }
 
         private void button_sua_Click(object sender, EventArgs e)
@@ -57,8 +57,17 @@ namespace FinalProject.UI
 
         private void button_xoa_Click(object sender, EventArgs e)
         {
-            Query = "delete";
-            Excute(Query);
+            if (DevExpress.XtraEditors.XtraMessageBox.Show("Bạn có chắc chắn muốn xóa? Bạn sẽ không thể phục hồi dữ liệu đã bị xóa!", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                Query = "delete";
+                Excute(Query);
+                text_mamon.Text = "";
+                text_tenmon.Text = "";
+                text_sotiet.Text = "0";
+                text_hesomon.Text = "0";
+                Load_data();
+            }
+
         }
 
         private void button_luu_Click(object sender, EventArgs e)
@@ -69,23 +78,24 @@ namespace FinalProject.UI
 
         private void button_huy_Click(object sender, EventArgs e)
         {
+            Load_data();
             ControlButton(true);
         }
 
         private void data_view_RowEnter(object sender, DataGridViewCellEventArgs e)
         {
             int index = e.RowIndex;
-            
+
             text_mamon.Text = data_view["Column1", index].Value.ToString();
             text_tenmon.Text = data_view["Column2", index].Value.ToString();
             text_sotiet.Text = data_view["Column3", index].Value.ToString();
             text_hesomon.Text = data_view["Column4", index].Value.ToString();
-             
+
         }
 
         private void Excute(string strQuery)
         {
-            if (strQuery =="add")
+            if (strQuery == "add")
             {
                 try
                 {
@@ -100,7 +110,7 @@ namespace FinalProject.UI
 
                     if (text_mamon.Text.Length == 0)
                     {
-                        MessageBox.Show("Mã môn không được để trống!", "Thông báo!", MessageBoxButtons.OK);
+                        DevExpress.XtraEditors.XtraMessageBox.Show("Mã môn không được để trống!", "Thông báo!", MessageBoxButtons.OK);
                     }
                     else if (!(_MonHoc.CheckID(_maMon)))
                     {
@@ -109,12 +119,12 @@ namespace FinalProject.UI
                     }
                     else
                     {
-                        MessageBox.Show("Mã môn đã tồn tại!", "Thông báo!", MessageBoxButtons.OK);
+                        DevExpress.XtraEditors.XtraMessageBox.Show("Mã môn đã tồn tại!", "Thông báo!", MessageBoxButtons.OK);
                     }
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Them bi loi: " + ex.Message.ToString(), "Thong bao", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    DevExpress.XtraEditors.XtraMessageBox.Show("Thêm bị lỗi: " + ex.Message.ToString(), "Thông báo!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
             if (strQuery == "edit")
@@ -133,7 +143,7 @@ namespace FinalProject.UI
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Sua bi loi: " + ex.Message.ToString(), "Thong bao", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    DevExpress.XtraEditors.XtraMessageBox.Show("Sửa bị lỗi: " + ex.Message.ToString(), "Thông báo!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
             if (strQuery == "delete")
@@ -147,7 +157,7 @@ namespace FinalProject.UI
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Xóa bị lỗi: " + ex.Message.ToString(), "Thong bao", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    DevExpress.XtraEditors.XtraMessageBox.Show("Xóa bị lỗi: " + ex.Message.ToString(), "Thông báo!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
         }
@@ -155,7 +165,7 @@ namespace FinalProject.UI
         private void ControlButton(bool type)
         {
             this.button_them.Enabled = button_sua.Enabled = button_xoa.Enabled = type;
-            button_luu.Enabled = button_huy.Enabled = !type;
+            button_luu.Enabled = button_huy.Enabled = group_thongtin.Enabled = !type;
         }
     }
 }

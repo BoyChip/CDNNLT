@@ -44,11 +44,6 @@
             this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button_them = new DevExpress.XtraEditors.SimpleButton();
-            this.button_sua = new DevExpress.XtraEditors.SimpleButton();
-            this.button_luu = new DevExpress.XtraEditors.SimpleButton();
-            this.button_xoa = new DevExpress.XtraEditors.SimpleButton();
-            this.button_huy = new DevExpress.XtraEditors.SimpleButton();
             this.text_magiaovien = new DevExpress.XtraEditors.TextEdit();
             this.text_hogiaovien = new DevExpress.XtraEditors.TextEdit();
             this.text_tengiaovien = new DevExpress.XtraEditors.TextEdit();
@@ -80,6 +75,11 @@
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
             this.cb_tobomon = new System.Windows.Forms.ComboBox();
             this.groupControl3 = new DevExpress.XtraEditors.GroupControl();
+            this.button_them = new DevExpress.XtraEditors.SimpleButton();
+            this.button_sua = new DevExpress.XtraEditors.SimpleButton();
+            this.button_xoa = new DevExpress.XtraEditors.SimpleButton();
+            this.button_huy = new DevExpress.XtraEditors.SimpleButton();
+            this.button_luu = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.data_view)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.text_magiaovien.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.text_hogiaovien.Properties)).BeginInit();
@@ -105,6 +105,8 @@
             // 
             // data_view
             // 
+            this.data_view.AllowUserToAddRows = false;
+            this.data_view.AllowUserToDeleteRows = false;
             this.data_view.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.data_view.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
@@ -122,9 +124,9 @@
             this.Column13,
             this.Column14});
             this.data_view.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.data_view.Location = new System.Drawing.Point(0, 389);
+            this.data_view.Location = new System.Drawing.Point(0, 403);
             this.data_view.Name = "data_view";
-            this.data_view.Size = new System.Drawing.Size(1059, 279);
+            this.data_view.Size = new System.Drawing.Size(1059, 265);
             this.data_view.TabIndex = 0;
             this.data_view.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.data_view_RowEnter);
             // 
@@ -211,56 +213,6 @@
             this.Column14.DataPropertyName = "MATOBOMON";
             this.Column14.HeaderText = "Mã tổ bộ môn";
             this.Column14.Name = "Column14";
-            // 
-            // button_them
-            // 
-            this.button_them.Image = ((System.Drawing.Image)(resources.GetObject("button_them.Image")));
-            this.button_them.Location = new System.Drawing.Point(24, 13);
-            this.button_them.Name = "button_them";
-            this.button_them.Size = new System.Drawing.Size(80, 40);
-            this.button_them.TabIndex = 1;
-            this.button_them.Text = "Thêm";
-            this.button_them.Click += new System.EventHandler(this.button_them_Click);
-            // 
-            // button_sua
-            // 
-            this.button_sua.Image = ((System.Drawing.Image)(resources.GetObject("button_sua.Image")));
-            this.button_sua.Location = new System.Drawing.Point(129, 13);
-            this.button_sua.Name = "button_sua";
-            this.button_sua.Size = new System.Drawing.Size(80, 40);
-            this.button_sua.TabIndex = 2;
-            this.button_sua.Text = "Sửa";
-            this.button_sua.Click += new System.EventHandler(this.button_sua_Click);
-            // 
-            // button_luu
-            // 
-            this.button_luu.Image = ((System.Drawing.Image)(resources.GetObject("button_luu.Image")));
-            this.button_luu.Location = new System.Drawing.Point(333, 13);
-            this.button_luu.Name = "button_luu";
-            this.button_luu.Size = new System.Drawing.Size(80, 40);
-            this.button_luu.TabIndex = 3;
-            this.button_luu.Text = "Lưu";
-            this.button_luu.Click += new System.EventHandler(this.button_luu_Click);
-            // 
-            // button_xoa
-            // 
-            this.button_xoa.Image = ((System.Drawing.Image)(resources.GetObject("button_xoa.Image")));
-            this.button_xoa.Location = new System.Drawing.Point(228, 13);
-            this.button_xoa.Name = "button_xoa";
-            this.button_xoa.Size = new System.Drawing.Size(80, 40);
-            this.button_xoa.TabIndex = 4;
-            this.button_xoa.Text = "Xóa";
-            this.button_xoa.Click += new System.EventHandler(this.button_xoa_Click);
-            // 
-            // button_huy
-            // 
-            this.button_huy.Image = ((System.Drawing.Image)(resources.GetObject("button_huy.Image")));
-            this.button_huy.Location = new System.Drawing.Point(465, 13);
-            this.button_huy.Name = "button_huy";
-            this.button_huy.Size = new System.Drawing.Size(80, 40);
-            this.button_huy.TabIndex = 5;
-            this.button_huy.Text = "Hủy";
-            this.button_huy.Click += new System.EventHandler(this.button_huy_Click);
             // 
             // text_magiaovien
             // 
@@ -363,7 +315,7 @@
             // 
             // labelControl9
             // 
-            this.labelControl9.Location = new System.Drawing.Point(44, 45);
+            this.labelControl9.Location = new System.Drawing.Point(48, 88);
             this.labelControl9.Name = "labelControl9";
             this.labelControl9.Size = new System.Drawing.Size(40, 13);
             this.labelControl9.TabIndex = 31;
@@ -395,7 +347,7 @@
             // 
             // labelControl13
             // 
-            this.labelControl13.Location = new System.Drawing.Point(34, 158);
+            this.labelControl13.Location = new System.Drawing.Point(38, 201);
             this.labelControl13.Name = "labelControl13";
             this.labelControl13.Size = new System.Drawing.Size(50, 13);
             this.labelControl13.TabIndex = 35;
@@ -403,7 +355,7 @@
             // 
             // labelControl14
             // 
-            this.labelControl14.Location = new System.Drawing.Point(24, 101);
+            this.labelControl14.Location = new System.Drawing.Point(28, 144);
             this.labelControl14.Name = "labelControl14";
             this.labelControl14.Size = new System.Drawing.Size(60, 13);
             this.labelControl14.TabIndex = 34;
@@ -447,7 +399,7 @@
             // 
             // cb_chuyenmon
             // 
-            this.cb_chuyenmon.Location = new System.Drawing.Point(90, 98);
+            this.cb_chuyenmon.Location = new System.Drawing.Point(94, 141);
             this.cb_chuyenmon.Name = "cb_chuyenmon";
             this.cb_chuyenmon.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -456,7 +408,7 @@
             // 
             // cb_chucvu
             // 
-            this.cb_chucvu.Location = new System.Drawing.Point(90, 42);
+            this.cb_chucvu.Location = new System.Drawing.Point(94, 85);
             this.cb_chucvu.Name = "cb_chucvu";
             this.cb_chucvu.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -523,14 +475,14 @@
             this.groupControl2.Controls.Add(this.labelControl9);
             this.groupControl2.Location = new System.Drawing.Point(719, 0);
             this.groupControl2.Name = "groupControl2";
-            this.groupControl2.Size = new System.Drawing.Size(340, 209);
+            this.groupControl2.Size = new System.Drawing.Size(340, 256);
             this.groupControl2.TabIndex = 47;
             this.groupControl2.Text = "Chức Vụ - Chuyên Môn";
             // 
             // cb_tobomon
             // 
             this.cb_tobomon.FormattingEnabled = true;
-            this.cb_tobomon.Location = new System.Drawing.Point(102, 150);
+            this.cb_tobomon.Location = new System.Drawing.Point(94, 198);
             this.cb_tobomon.Name = "cb_tobomon";
             this.cb_tobomon.Size = new System.Drawing.Size(121, 21);
             this.cb_tobomon.TabIndex = 44;
@@ -550,6 +502,56 @@
             this.groupControl3.TabIndex = 48;
             this.groupControl3.Text = "groupControl3";
             // 
+            // button_them
+            // 
+            this.button_them.Image = ((System.Drawing.Image)(resources.GetObject("button_them.Image")));
+            this.button_them.Location = new System.Drawing.Point(24, 13);
+            this.button_them.Name = "button_them";
+            this.button_them.Size = new System.Drawing.Size(80, 40);
+            this.button_them.TabIndex = 1;
+            this.button_them.Text = "Thêm";
+            this.button_them.Click += new System.EventHandler(this.button_them_Click);
+            // 
+            // button_sua
+            // 
+            this.button_sua.Image = ((System.Drawing.Image)(resources.GetObject("button_sua.Image")));
+            this.button_sua.Location = new System.Drawing.Point(129, 13);
+            this.button_sua.Name = "button_sua";
+            this.button_sua.Size = new System.Drawing.Size(80, 40);
+            this.button_sua.TabIndex = 2;
+            this.button_sua.Text = "Sửa";
+            this.button_sua.Click += new System.EventHandler(this.button_sua_Click);
+            // 
+            // button_xoa
+            // 
+            this.button_xoa.Image = ((System.Drawing.Image)(resources.GetObject("button_xoa.Image")));
+            this.button_xoa.Location = new System.Drawing.Point(228, 13);
+            this.button_xoa.Name = "button_xoa";
+            this.button_xoa.Size = new System.Drawing.Size(80, 40);
+            this.button_xoa.TabIndex = 4;
+            this.button_xoa.Text = "Xóa";
+            this.button_xoa.Click += new System.EventHandler(this.button_xoa_Click);
+            // 
+            // button_huy
+            // 
+            this.button_huy.Image = ((System.Drawing.Image)(resources.GetObject("button_huy.Image")));
+            this.button_huy.Location = new System.Drawing.Point(448, 13);
+            this.button_huy.Name = "button_huy";
+            this.button_huy.Size = new System.Drawing.Size(80, 40);
+            this.button_huy.TabIndex = 5;
+            this.button_huy.Text = "Hủy";
+            this.button_huy.Click += new System.EventHandler(this.button_huy_Click);
+            // 
+            // button_luu
+            // 
+            this.button_luu.Image = ((System.Drawing.Image)(resources.GetObject("button_luu.Image")));
+            this.button_luu.Location = new System.Drawing.Point(333, 13);
+            this.button_luu.Name = "button_luu";
+            this.button_luu.Size = new System.Drawing.Size(80, 40);
+            this.button_luu.TabIndex = 3;
+            this.button_luu.Text = "Lưu";
+            this.button_luu.Click += new System.EventHandler(this.button_luu_Click);
+            // 
             // QLGiaoVien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -559,6 +561,7 @@
             this.Controls.Add(this.groupControl2);
             this.Controls.Add(this.groupControl1);
             this.Controls.Add(this.data_view);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "QLGiaoVien";
             this.Text = "Quản Lý Giáo Viên";
             this.Load += new System.EventHandler(this.QLGiaoVien_Load);

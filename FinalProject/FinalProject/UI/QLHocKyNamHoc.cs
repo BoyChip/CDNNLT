@@ -35,6 +35,7 @@ namespace FinalProject.UI
 
         private void button_them_Click(object sender, EventArgs e)
         {
+            ControlButton(false);
             Query = "add";
             
             cb_hocky.Text = "";
@@ -43,7 +44,7 @@ namespace FinalProject.UI
             cb_hocky.Enabled = true;
             cb_hocky.Focus();
 
-            ControlButton(false);
+ 
         }
 
         private void button_sua_Click(object sender, EventArgs e)
@@ -80,7 +81,7 @@ namespace FinalProject.UI
         private void ControlButton(bool type)
         {
             this.button_them.Enabled = button_sua.Enabled = type;
-            button_luu.Enabled = button_huy.Enabled = !type;
+            button_luu.Enabled = button_huy.Enabled = group_thongtin.Enabled=!type;
         }
 
         private void Excute(string strQuery)

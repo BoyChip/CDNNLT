@@ -41,6 +41,31 @@ namespace FinalProject.Business
                 return true;
             return false;
         }
+
+        //check mat khau
+        public bool Check_Pass(string _maGiaoVien, string _matKhau)
+        {
+            DataConfig config = new DataConfig();
+            string strQuery = "select * from dbo.dangnhap where magiaovien = '" + _maGiaoVien + "' and matkhau = '"+_matKhau+"'";
+            DataTable dt = new DataTable();
+            dt = config.GetDataTable(strQuery);
+            if (dt.Rows.Count > 0)
+                return true;
+            return false;
+        }
+
+        // diem so luong phan tu co trong csdl
+        public int  Count_Data_Rows()
+        {
+            int result = 0;
+            DataConfig config = new DataConfig();
+            string strQuery = "select * from dbo.dangnhap";
+            DataTable dt = new DataTable();
+            dt = config.GetDataTable(strQuery);
+            result = dt.Rows.Count;
+                
+            return result;
+        }
         // check Dang nhap
         public bool Check_DangNhap(string _tenDangNhap, string _matKhau)
         {
@@ -57,7 +82,17 @@ namespace FinalProject.Business
         public int Update(DangNhapEntities obj)
         {
             int result = 0;
-            string strQuery = "update dbo.dangnhap set magiaovien = '" + obj.MaGiaoVien + "', tendangnhap = '" + obj.TenDangNhap + "', malop = '" + obj.MatKhau + "', hocky = '" + obj.MaLoai + "'";
+            string strQuery = "update dbo.dangnhap set  tendangnhap = '" + obj.TenDangNhap + "', matkhau = '" + obj.MatKhau + "', maloai = '" + obj.MaLoai + "' where magiaovien = '" + obj.MaGiaoVien + "'";
+            DataConfig config = new DataConfig();
+            result = config.executeNoneQuery(strQuery);
+            return result;
+        }
+
+        // update mat khau 
+        public int Update_Pass(DangNhapEntities obj)
+        {
+            int result = 0;
+            string strQuery = "update dbo.dangnhap set   matkhau = '" + obj.MatKhau + "' where magiaovien = '" + obj.MaGiaoVien + "'";
             DataConfig config = new DataConfig();
             result = config.executeNoneQuery(strQuery);
             return result;

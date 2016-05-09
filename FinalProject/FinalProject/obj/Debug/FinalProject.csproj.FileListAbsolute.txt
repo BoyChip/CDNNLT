@@ -86,3 +86,10 @@ C:\Users\BoyChip\Documents\GitHub\CDNNLT\FinalProject\FinalProject\obj\Debug\Fin
 C:\Users\BoyChip\Documents\GitHub\CDNNLT\FinalProject\FinalProject\obj\Debug\FinalProject.exe.licenses
 C:\Users\BoyChip\Documents\GitHub\CDNNLT\FinalProject\FinalProject\obj\Debug\FinalProject.exe
 C:\Users\BoyChip\Documents\GitHub\CDNNLT\FinalProject\FinalProject\obj\Debug\FinalProject.pdb
+C:\Users\BoyChip\Documents\GitHub\CDNNLT\FinalProject\FinalProject\obj\Debug\FinalProject.csprojResolveAssemblyReference.cache
+C:\Users\BoyChip\Documents\GitHub\CDNNLT\FinalProject\FinalProject\obj\Debug\FinalProject.UI.TimKiemGiaoVien.resources
+C:\Users\BoyChip\Documents\GitHub\CDNNLT\FinalProject\FinalProject\obj\Debug\FinalProject.UI.TimKiemLop.resources
+C:\Users\BoyChip\Documents\GitHub\CDNNLT\FinalProject\FinalProject\obj\Debug\FinalProject.UI.TimKiemHocSinh.resources
+C:\Users\BoyChip\Documents\GitHub\CDNNLT\FinalProject\FinalProject\obj\Debug\FinalProject.UI.CapTaiKhoan.resources
+C:\Users\BoyChip\Documents\GitHub\CDNNLT\FinalProject\FinalProject\obj\Debug\FinalProject.UI.DoiMatKhau.resources
+C:\Users\BoyChip\Documents\GitHub\CDNNLT\FinalProject\FinalProject\obj\Debug\FinalProject.UI.QLPhanLoaiNguoiDung.resources

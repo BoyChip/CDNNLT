@@ -36,6 +36,7 @@ namespace FinalProject.UI
 
         private void button_them_Click(object sender, EventArgs e)
         {
+            ControlButton(false);
             Query = "add";
 
             text_matobomon.Text = "";
@@ -43,7 +44,7 @@ namespace FinalProject.UI
 
             text_matobomon.Enabled = true;
             text_matobomon.Focus();
-            ControlButton(false);
+ 
 
         }
 
@@ -56,8 +57,12 @@ namespace FinalProject.UI
 
         private void button_xoa_Click(object sender, EventArgs e)
         {
-            Query = "delete";
-            Excute(Query);
+            if (DevExpress.XtraEditors.XtraMessageBox.Show("Bạn có chắc chắn muốn xóa? Bạn sẽ không thể phục hồi dữ liệu đã bị xóa!", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                Query = "delete";
+                Excute(Query);
+            }
+
         }
 
         private void button_luu_Click(object sender, EventArgs e)
@@ -87,7 +92,6 @@ namespace FinalProject.UI
                 text_matobomon.Text = data_view["Column1", index].Value.ToString();
                 text_tentobomon.Text = data_view["Column2", index].Value.ToString();
             }
-            
         }
 
         private void Excute(string strQuery)
@@ -100,16 +104,30 @@ namespace FinalProject.UI
                     obj_ToBoMon.MaToBoMon = text_matobomon.Text.Trim();
                     obj_ToBoMon.TenBoMon = text_tentobomon.Text.Trim();
 
+                    string _maToBoMon = text_matobomon.Text.Trim();
+
                     ToBoMonBLL _ToBoMon = new ToBoMonBLL();
-                    _ToBoMon.Insert(obj_ToBoMon);
-                    Load_data();
+                    if (text_matobomon.Text.Length == 0)
+                    {
+                        DevExpress.XtraEditors.XtraMessageBox.Show("Chưa nhập thông tin mã tổ bộ môn!", "Thông báo!", MessageBoxButtons.OK);
+                    }
+                    else
+                        if (!(_ToBoMon.CheckID(_maToBoMon)))
+                        {
+                            _ToBoMon.Insert(obj_ToBoMon);
+                            Load_data();
+                        }
+                        else
+                        {
+                            DevExpress.XtraEditors.XtraMessageBox.Show("Mã tổ bộ môn đã tồn tại!", "Thông báo!", MessageBoxButtons.OK);
+                        }
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Them bi loi: " + ex.Message.ToString(), "Thong bao", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    DevExpress.XtraEditors.XtraMessageBox.Show("Thêm bị lỗi: " + ex.Message.ToString(), "Thông báo!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
-            if (strQuery =="edit")
+            if (strQuery == "edit")
             {
                 try
                 {
@@ -123,7 +141,7 @@ namespace FinalProject.UI
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Sua bi loi: " + ex.Message.ToString(), "Thong bao", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    DevExpress.XtraEditors.XtraMessageBox.Show("Sửa bị lỗi: " + ex.Message.ToString(), "Thông báo!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
             if (strQuery == "delete")
@@ -137,7 +155,7 @@ namespace FinalProject.UI
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Xóa bị lỗi: " + ex.Message.ToString(), "Thong bao", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    DevExpress.XtraEditors.XtraMessageBox.Show("Xóa bị lỗi: " + ex.Message.ToString(), "Thông báo!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
         }
@@ -145,7 +163,7 @@ namespace FinalProject.UI
         private void ControlButton(bool type)
         {
             this.button_them.Enabled = button_sua.Enabled = button_xoa.Enabled = type;
-            button_luu.Enabled = button_huy.Enabled = !type;
+            button_luu.Enabled = button_huy.Enabled = group_thongtin.Enabled =!type;
         }
     }
 }

@@ -29,10 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(QLHocKyNamHoc));
-            this.button_them = new DevExpress.XtraEditors.SimpleButton();
-            this.button_sua = new DevExpress.XtraEditors.SimpleButton();
-            this.button_luu = new DevExpress.XtraEditors.SimpleButton();
-            this.button_huy = new DevExpress.XtraEditors.SimpleButton();
             this.grid_hockynamhoc = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -40,48 +36,15 @@
             this.label2 = new System.Windows.Forms.Label();
             this.cb_namhoc = new System.Windows.Forms.ComboBox();
             this.cb_hocky = new System.Windows.Forms.ComboBox();
+            this.group_thongtin = new DevExpress.XtraEditors.GroupControl();
+            this.button_huy = new DevExpress.XtraEditors.SimpleButton();
+            this.button_luu = new DevExpress.XtraEditors.SimpleButton();
+            this.button_sua = new DevExpress.XtraEditors.SimpleButton();
+            this.button_them = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.grid_hockynamhoc)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.group_thongtin)).BeginInit();
+            this.group_thongtin.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // button_them
-            // 
-            this.button_them.Image = ((System.Drawing.Image)(resources.GetObject("button_them.Image")));
-            this.button_them.Location = new System.Drawing.Point(413, 25);
-            this.button_them.Name = "button_them";
-            this.button_them.Size = new System.Drawing.Size(80, 40);
-            this.button_them.TabIndex = 2;
-            this.button_them.Text = "Thêm";
-            this.button_them.Click += new System.EventHandler(this.button_them_Click);
-            // 
-            // button_sua
-            // 
-            this.button_sua.Image = ((System.Drawing.Image)(resources.GetObject("button_sua.Image")));
-            this.button_sua.Location = new System.Drawing.Point(522, 25);
-            this.button_sua.Name = "button_sua";
-            this.button_sua.Size = new System.Drawing.Size(80, 40);
-            this.button_sua.TabIndex = 3;
-            this.button_sua.Text = "Sửa";
-            this.button_sua.Click += new System.EventHandler(this.button_sua_Click);
-            // 
-            // button_luu
-            // 
-            this.button_luu.Image = ((System.Drawing.Image)(resources.GetObject("button_luu.Image")));
-            this.button_luu.Location = new System.Drawing.Point(413, 92);
-            this.button_luu.Name = "button_luu";
-            this.button_luu.Size = new System.Drawing.Size(80, 40);
-            this.button_luu.TabIndex = 5;
-            this.button_luu.Text = "Lưu";
-            this.button_luu.Click += new System.EventHandler(this.button_luu_Click);
-            // 
-            // button_huy
-            // 
-            this.button_huy.Image = ((System.Drawing.Image)(resources.GetObject("button_huy.Image")));
-            this.button_huy.Location = new System.Drawing.Point(636, 25);
-            this.button_huy.Name = "button_huy";
-            this.button_huy.Size = new System.Drawing.Size(80, 40);
-            this.button_huy.TabIndex = 6;
-            this.button_huy.Text = "Hủy";
-            this.button_huy.Click += new System.EventHandler(this.button_huy_Click);
             // 
             // grid_hockynamhoc
             // 
@@ -95,7 +58,7 @@
             this.grid_hockynamhoc.Location = new System.Drawing.Point(0, 162);
             this.grid_hockynamhoc.Name = "grid_hockynamhoc";
             this.grid_hockynamhoc.ReadOnly = true;
-            this.grid_hockynamhoc.Size = new System.Drawing.Size(802, 335);
+            this.grid_hockynamhoc.Size = new System.Drawing.Size(499, 335);
             this.grid_hockynamhoc.TabIndex = 7;
             this.grid_hockynamhoc.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.grid_hockynamhoc_RowEnter);
             // 
@@ -104,18 +67,20 @@
             this.Column1.DataPropertyName = "HOCKY";
             this.Column1.HeaderText = "Học Kỳ";
             this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
             // 
             // Column2
             // 
             this.Column2.DataPropertyName = "NAMHOC";
             this.Column2.HeaderText = "Năm Học";
             this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(31, 83);
+            this.label1.Location = new System.Drawing.Point(33, 81);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(46, 16);
             this.label1.TabIndex = 9;
@@ -125,7 +90,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(20, 25);
+            this.label2.Location = new System.Drawing.Point(20, 34);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(59, 16);
             this.label2.TabIndex = 10;
@@ -143,7 +108,7 @@
             "2020-2021",
             "2021-2022",
             "2022-2023"});
-            this.cb_namhoc.Location = new System.Drawing.Point(115, 24);
+            this.cb_namhoc.Location = new System.Drawing.Point(85, 34);
             this.cb_namhoc.Name = "cb_namhoc";
             this.cb_namhoc.Size = new System.Drawing.Size(121, 21);
             this.cb_namhoc.TabIndex = 11;
@@ -154,31 +119,83 @@
             this.cb_hocky.Items.AddRange(new object[] {
             "1",
             "2"});
-            this.cb_hocky.Location = new System.Drawing.Point(115, 82);
+            this.cb_hocky.Location = new System.Drawing.Point(85, 81);
             this.cb_hocky.Name = "cb_hocky";
             this.cb_hocky.Size = new System.Drawing.Size(121, 21);
             this.cb_hocky.TabIndex = 12;
+            // 
+            // group_thongtin
+            // 
+            this.group_thongtin.Controls.Add(this.cb_hocky);
+            this.group_thongtin.Controls.Add(this.cb_namhoc);
+            this.group_thongtin.Controls.Add(this.label2);
+            this.group_thongtin.Controls.Add(this.label1);
+            this.group_thongtin.Location = new System.Drawing.Point(0, 2);
+            this.group_thongtin.Name = "group_thongtin";
+            this.group_thongtin.Size = new System.Drawing.Size(242, 119);
+            this.group_thongtin.TabIndex = 13;
+            this.group_thongtin.Text = "Thông Tin Năm Học - Học Kỳ";
+            // 
+            // button_huy
+            // 
+            this.button_huy.Image = ((System.Drawing.Image)(resources.GetObject("button_huy.Image")));
+            this.button_huy.Location = new System.Drawing.Point(392, 81);
+            this.button_huy.Name = "button_huy";
+            this.button_huy.Size = new System.Drawing.Size(80, 40);
+            this.button_huy.TabIndex = 6;
+            this.button_huy.Text = "Hủy";
+            this.button_huy.Click += new System.EventHandler(this.button_huy_Click);
+            // 
+            // button_luu
+            // 
+            this.button_luu.Image = ((System.Drawing.Image)(resources.GetObject("button_luu.Image")));
+            this.button_luu.Location = new System.Drawing.Point(288, 81);
+            this.button_luu.Name = "button_luu";
+            this.button_luu.Size = new System.Drawing.Size(80, 40);
+            this.button_luu.TabIndex = 5;
+            this.button_luu.Text = "Lưu";
+            this.button_luu.Click += new System.EventHandler(this.button_luu_Click);
+            // 
+            // button_sua
+            // 
+            this.button_sua.Image = ((System.Drawing.Image)(resources.GetObject("button_sua.Image")));
+            this.button_sua.Location = new System.Drawing.Point(392, 17);
+            this.button_sua.Name = "button_sua";
+            this.button_sua.Size = new System.Drawing.Size(80, 40);
+            this.button_sua.TabIndex = 3;
+            this.button_sua.Text = "Sửa";
+            this.button_sua.Click += new System.EventHandler(this.button_sua_Click);
+            // 
+            // button_them
+            // 
+            this.button_them.Image = ((System.Drawing.Image)(resources.GetObject("button_them.Image")));
+            this.button_them.Location = new System.Drawing.Point(288, 17);
+            this.button_them.Name = "button_them";
+            this.button_them.Size = new System.Drawing.Size(80, 40);
+            this.button_them.TabIndex = 2;
+            this.button_them.Text = "Thêm";
+            this.button_them.Click += new System.EventHandler(this.button_them_Click);
             // 
             // QLHocKyNamHoc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(802, 497);
-            this.Controls.Add(this.cb_hocky);
-            this.Controls.Add(this.cb_namhoc);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.ClientSize = new System.Drawing.Size(499, 497);
+            this.Controls.Add(this.group_thongtin);
             this.Controls.Add(this.grid_hockynamhoc);
             this.Controls.Add(this.button_huy);
             this.Controls.Add(this.button_luu);
             this.Controls.Add(this.button_sua);
             this.Controls.Add(this.button_them);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "QLHocKyNamHoc";
             this.Text = "Học Kỳ - Năm Học";
             this.Load += new System.EventHandler(this.QLHocKyNamHoc_Load);
             ((System.ComponentModel.ISupportInitialize)(this.grid_hockynamhoc)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.group_thongtin)).EndInit();
+            this.group_thongtin.ResumeLayout(false);
+            this.group_thongtin.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -195,5 +212,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cb_namhoc;
         private System.Windows.Forms.ComboBox cb_hocky;
+        private DevExpress.XtraEditors.GroupControl group_thongtin;
     }
 }

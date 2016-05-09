@@ -26,7 +26,7 @@ namespace FinalProject.Business
         public int Insert(GiaoVienEntities obj)
         {
             int result = 0;
-            string strQuery = "insert into dbo.giaovien (MAGIAOVIEN, HOGIAOVIEN, TENGIAOVIEN, NGAYSINH, GIOITINH, DANTOC, DIACHI_SONHA, DIACHI_XA_PHUONG, DIACHI_QUAN_HUYEN, DIACHI_TINH_THANHPHO, DIENTHOAI, CHUCVU, CHUYENMON, MATOBOMON) values ('" + obj.MaGiaoVien + "', '" + obj.HoGiaoVien + "', '"+obj.TenGiaoVien+"', '"+obj.NgaySinh+"', '"+obj.DanToc+"','"+obj.DiaChi_SoNha+"','"+obj.DiaChi_Xa_Phuong+"', '"+obj.DiaChi_Quan_Huyen+"', '"+obj.DiaChi_Tinh_ThanhPho+"', '"+obj.SoDienThoai+"', '"+obj.ChucVu+"', '"+obj.ChuyenMon+"', '"+obj.MaToBoMon+"')";
+            string strQuery = "insert into dbo.giaovien (MAGIAOVIEN, HOGIAOVIEN, TENGIAOVIEN, NGAYSINH, GIOITINH, DANTOC, DIACHI_SONHA, DIACHI_XA_PHUONG, DIACHI_QUAN_HUYEN, DIACHI_TINH_THANHPHO, DIENTHOAI, CHUCVU, CHUYENMON, MATOBOMON) values ('" + obj.MaGiaoVien + "', N'" + obj.HoGiaoVien + "', N'"+obj.TenGiaoVien+"', '"+obj.NgaySinh+"', N'"+obj.DanToc+"',N'"+obj.DiaChi_SoNha+"',N'"+obj.DiaChi_Xa_Phuong+"', N'"+obj.DiaChi_Quan_Huyen+"', N'"+obj.DiaChi_Tinh_ThanhPho+"', N'"+obj.SoDienThoai+"', N'"+obj.ChucVu+"', N'"+obj.ChuyenMon+"', N'"+obj.MaToBoMon+"')";
             DataConfig config = new DataConfig();
             result = config.executeNoneQuery(strQuery);
             return result;
@@ -43,11 +43,34 @@ namespace FinalProject.Business
             return false;
         }
 
+        // cau lenh tim kiem
+        public DataTable FindItem(string item)
+        {
+            DataTable result = new DataTable();
+            DataConfig config = new DataConfig();
+            string strQuery = "select * from dbo.giaovien where MAGIAOVIEN like '%" + item + "%' or HOGIAOVIEN = '" + item + "' or TENGIAOVIEN = '" + item + "' or GIOITINH = '" + item + "'";
+            result = config.GetDataTable(strQuery);
+            return result;
+        }
+
+        // diem tat ca so dong co trong csdl
+        public int  Count_Data_Rows()
+        {
+            int result = 0;
+            DataConfig config = new DataConfig();
+            string strQuery = "select * from dbo.giaovien ";
+            DataTable dt = new DataTable();
+            dt = config.GetDataTable(strQuery);
+            result = dt.Rows.Count;
+           
+            return result;
+        }
+
         // cau lenh update
         public int Update(GiaoVienEntities obj)
         {
             int result = 0;
-            string strQuery = "update dbo.giaovien set magiaovien = '"+obj.MaGiaoVien+"', hogiaovien = '"+obj.HoGiaoVien+"', tengiaovien = '"+obj.TenGiaoVien+"', ngaysinh = '"+obj.NgaySinh+"', gioitinh = '"+obj.GioiTinh+"', dantoc = '"+obj.DanToc+"', diachi_sonha = '"+obj.DiaChi_SoNha+"', diachi_quan_huyen = '"+obj.DiaChi_Quan_Huyen+"', diachi_tinh_thanhpho = '"+obj.DiaChi_Tinh_ThanhPho+"', dienthoai = '"+obj.SoDienThoai+"', chucvu = '"+obj.ChucVu+"', chuyenmon = '"+obj.ChuyenMon+"', matobomon = '"+obj.MaToBoMon+"' ";
+            string strQuery = "update dbo.giaovien set  hogiaovien = N'" + obj.HoGiaoVien + "', tengiaovien = N'" + obj.TenGiaoVien + "', ngaysinh = '" + obj.NgaySinh + "', gioitinh = N'" + obj.GioiTinh + "', dantoc = N'" + obj.DanToc + "', diachi_sonha = N'" + obj.DiaChi_SoNha + "', diachi_quan_huyen = N'" + obj.DiaChi_Quan_Huyen + "', diachi_tinh_thanhpho = N'" + obj.DiaChi_Tinh_ThanhPho + "', dienthoai = '" + obj.SoDienThoai + "', chucvu = N'" + obj.ChucVu + "', chuyenmon = N'" + obj.ChuyenMon + "', matobomon = '" + obj.MaToBoMon + "' where magiaovien = '" + obj.MaGiaoVien + "'";
             DataConfig config = new DataConfig();
             result = config.executeNoneQuery(strQuery);
             return result;

@@ -37,11 +37,6 @@
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button_luu = new DevExpress.XtraEditors.SimpleButton();
-            this.button_sua = new DevExpress.XtraEditors.SimpleButton();
-            this.button_them = new DevExpress.XtraEditors.SimpleButton();
-            this.button_xoa = new DevExpress.XtraEditors.SimpleButton();
-            this.button_huy = new DevExpress.XtraEditors.SimpleButton();
             this.text_siso = new DevExpress.XtraEditors.TextEdit();
             this.text_malop = new DevExpress.XtraEditors.TextEdit();
             this.text_tenlop = new DevExpress.XtraEditors.TextEdit();
@@ -52,20 +47,25 @@
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
-            this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.group_hocky_namhoc = new DevExpress.XtraEditors.GroupControl();
             this.cb_hocky = new System.Windows.Forms.ComboBox();
             this.cb_namhoc = new System.Windows.Forms.ComboBox();
-            this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
+            this.group_thongtin = new DevExpress.XtraEditors.GroupControl();
             this.cb_magiaovien = new System.Windows.Forms.ComboBox();
             this.cb_makhoi = new System.Windows.Forms.ComboBox();
+            this.button_huy = new DevExpress.XtraEditors.SimpleButton();
+            this.button_xoa = new DevExpress.XtraEditors.SimpleButton();
+            this.button_them = new DevExpress.XtraEditors.SimpleButton();
+            this.button_sua = new DevExpress.XtraEditors.SimpleButton();
+            this.button_luu = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.data_view)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.text_siso.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.text_malop.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.text_tenlop.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
-            this.groupControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
-            this.groupControl2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.group_hocky_namhoc)).BeginInit();
+            this.group_hocky_namhoc.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.group_thongtin)).BeginInit();
+            this.group_thongtin.SuspendLayout();
             this.SuspendLayout();
             // 
             // data_view
@@ -130,66 +130,16 @@
             this.Column7.HeaderText = "Năm học";
             this.Column7.Name = "Column7";
             // 
-            // button_luu
-            // 
-            this.button_luu.Image = ((System.Drawing.Image)(resources.GetObject("button_luu.Image")));
-            this.button_luu.Location = new System.Drawing.Point(814, 65);
-            this.button_luu.Name = "button_luu";
-            this.button_luu.Size = new System.Drawing.Size(80, 40);
-            this.button_luu.TabIndex = 1;
-            this.button_luu.Text = "Lưu ";
-            this.button_luu.Click += new System.EventHandler(this.button_luu_Click);
-            // 
-            // button_sua
-            // 
-            this.button_sua.Image = ((System.Drawing.Image)(resources.GetObject("button_sua.Image")));
-            this.button_sua.Location = new System.Drawing.Point(814, 12);
-            this.button_sua.Name = "button_sua";
-            this.button_sua.Size = new System.Drawing.Size(80, 40);
-            this.button_sua.TabIndex = 2;
-            this.button_sua.Text = "Sửa";
-            this.button_sua.Click += new System.EventHandler(this.button_sua_Click);
-            // 
-            // button_them
-            // 
-            this.button_them.Image = ((System.Drawing.Image)(resources.GetObject("button_them.Image")));
-            this.button_them.Location = new System.Drawing.Point(697, 12);
-            this.button_them.Name = "button_them";
-            this.button_them.Size = new System.Drawing.Size(80, 40);
-            this.button_them.TabIndex = 3;
-            this.button_them.Text = "Thêm";
-            this.button_them.Click += new System.EventHandler(this.button_them_Click);
-            // 
-            // button_xoa
-            // 
-            this.button_xoa.Image = ((System.Drawing.Image)(resources.GetObject("button_xoa.Image")));
-            this.button_xoa.Location = new System.Drawing.Point(697, 65);
-            this.button_xoa.Name = "button_xoa";
-            this.button_xoa.Size = new System.Drawing.Size(80, 40);
-            this.button_xoa.TabIndex = 4;
-            this.button_xoa.Text = "Xóa";
-            this.button_xoa.Click += new System.EventHandler(this.button_xoa_Click);
-            // 
-            // button_huy
-            // 
-            this.button_huy.Image = ((System.Drawing.Image)(resources.GetObject("button_huy.Image")));
-            this.button_huy.Location = new System.Drawing.Point(697, 112);
-            this.button_huy.Name = "button_huy";
-            this.button_huy.Size = new System.Drawing.Size(80, 40);
-            this.button_huy.TabIndex = 5;
-            this.button_huy.Text = "Hủy";
-            this.button_huy.Click += new System.EventHandler(this.button_huy_Click);
-            // 
             // text_siso
             // 
-            this.text_siso.Location = new System.Drawing.Point(231, 69);
+            this.text_siso.Location = new System.Drawing.Point(246, 70);
             this.text_siso.Name = "text_siso";
-            this.text_siso.Size = new System.Drawing.Size(100, 20);
+            this.text_siso.Size = new System.Drawing.Size(111, 20);
             this.text_siso.TabIndex = 6;
             // 
             // text_malop
             // 
-            this.text_malop.Location = new System.Drawing.Point(231, 28);
+            this.text_malop.Location = new System.Drawing.Point(246, 29);
             this.text_malop.Name = "text_malop";
             this.text_malop.Size = new System.Drawing.Size(111, 20);
             this.text_malop.TabIndex = 7;
@@ -198,12 +148,12 @@
             // 
             this.text_tenlop.Location = new System.Drawing.Point(71, 70);
             this.text_tenlop.Name = "text_tenlop";
-            this.text_tenlop.Size = new System.Drawing.Size(100, 20);
+            this.text_tenlop.Size = new System.Drawing.Size(121, 20);
             this.text_tenlop.TabIndex = 11;
             // 
             // labelControl1
             // 
-            this.labelControl1.Location = new System.Drawing.Point(194, 31);
+            this.labelControl1.Location = new System.Drawing.Point(209, 32);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(31, 13);
             this.labelControl1.TabIndex = 13;
@@ -211,7 +161,7 @@
             // 
             // labelControl2
             // 
-            this.labelControl2.Location = new System.Drawing.Point(14, 35);
+            this.labelControl2.Location = new System.Drawing.Point(29, 35);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(36, 13);
             this.labelControl2.TabIndex = 14;
@@ -227,7 +177,7 @@
             // 
             // labelControl4
             // 
-            this.labelControl4.Location = new System.Drawing.Point(15, 76);
+            this.labelControl4.Location = new System.Drawing.Point(30, 76);
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(35, 13);
             this.labelControl4.TabIndex = 15;
@@ -251,23 +201,23 @@
             // 
             // labelControl7
             // 
-            this.labelControl7.Location = new System.Drawing.Point(203, 72);
+            this.labelControl7.Location = new System.Drawing.Point(218, 73);
             this.labelControl7.Name = "labelControl7";
             this.labelControl7.Size = new System.Drawing.Size(22, 13);
             this.labelControl7.TabIndex = 18;
             this.labelControl7.Text = "Sĩ số";
             // 
-            // groupControl1
+            // group_hocky_namhoc
             // 
-            this.groupControl1.Controls.Add(this.cb_hocky);
-            this.groupControl1.Controls.Add(this.cb_namhoc);
-            this.groupControl1.Controls.Add(this.labelControl6);
-            this.groupControl1.Controls.Add(this.labelControl5);
-            this.groupControl1.Location = new System.Drawing.Point(0, 0);
-            this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(216, 152);
-            this.groupControl1.TabIndex = 21;
-            this.groupControl1.Text = "Năm- Học Kỳ";
+            this.group_hocky_namhoc.Controls.Add(this.cb_hocky);
+            this.group_hocky_namhoc.Controls.Add(this.cb_namhoc);
+            this.group_hocky_namhoc.Controls.Add(this.labelControl6);
+            this.group_hocky_namhoc.Controls.Add(this.labelControl5);
+            this.group_hocky_namhoc.Location = new System.Drawing.Point(0, 0);
+            this.group_hocky_namhoc.Name = "group_hocky_namhoc";
+            this.group_hocky_namhoc.Size = new System.Drawing.Size(216, 152);
+            this.group_hocky_namhoc.TabIndex = 21;
+            this.group_hocky_namhoc.Text = "Năm- Học Kỳ";
             // 
             // cb_hocky
             // 
@@ -288,53 +238,104 @@
             this.cb_namhoc.Size = new System.Drawing.Size(121, 21);
             this.cb_namhoc.TabIndex = 21;
             // 
-            // groupControl2
+            // group_thongtin
             // 
-            this.groupControl2.Controls.Add(this.cb_magiaovien);
-            this.groupControl2.Controls.Add(this.cb_makhoi);
-            this.groupControl2.Controls.Add(this.labelControl7);
-            this.groupControl2.Controls.Add(this.labelControl3);
-            this.groupControl2.Controls.Add(this.labelControl4);
-            this.groupControl2.Controls.Add(this.labelControl2);
-            this.groupControl2.Controls.Add(this.labelControl1);
-            this.groupControl2.Controls.Add(this.text_tenlop);
-            this.groupControl2.Controls.Add(this.text_malop);
-            this.groupControl2.Controls.Add(this.text_siso);
-            this.groupControl2.Location = new System.Drawing.Point(266, 0);
-            this.groupControl2.Name = "groupControl2";
-            this.groupControl2.Size = new System.Drawing.Size(363, 152);
-            this.groupControl2.TabIndex = 22;
-            this.groupControl2.Text = "Thông Tin Lớp";
+            this.group_thongtin.Controls.Add(this.cb_magiaovien);
+            this.group_thongtin.Controls.Add(this.cb_makhoi);
+            this.group_thongtin.Controls.Add(this.labelControl7);
+            this.group_thongtin.Controls.Add(this.labelControl3);
+            this.group_thongtin.Controls.Add(this.labelControl4);
+            this.group_thongtin.Controls.Add(this.labelControl2);
+            this.group_thongtin.Controls.Add(this.labelControl1);
+            this.group_thongtin.Controls.Add(this.text_tenlop);
+            this.group_thongtin.Controls.Add(this.text_malop);
+            this.group_thongtin.Controls.Add(this.text_siso);
+            this.group_thongtin.Location = new System.Drawing.Point(266, 0);
+            this.group_thongtin.Name = "group_thongtin";
+            this.group_thongtin.Size = new System.Drawing.Size(389, 152);
+            this.group_thongtin.TabIndex = 22;
+            this.group_thongtin.Text = "Thông Tin Lớp";
             // 
             // cb_magiaovien
             // 
             this.cb_magiaovien.FormattingEnabled = true;
-            this.cb_magiaovien.Location = new System.Drawing.Point(81, 107);
+            this.cb_magiaovien.Location = new System.Drawing.Point(71, 112);
             this.cb_magiaovien.Name = "cb_magiaovien";
-            this.cb_magiaovien.Size = new System.Drawing.Size(121, 21);
+            this.cb_magiaovien.Size = new System.Drawing.Size(106, 21);
             this.cb_magiaovien.TabIndex = 23;
             // 
             // cb_makhoi
             // 
             this.cb_makhoi.FormattingEnabled = true;
-            this.cb_makhoi.Location = new System.Drawing.Point(56, 31);
+            this.cb_makhoi.Location = new System.Drawing.Point(71, 32);
             this.cb_makhoi.Name = "cb_makhoi";
             this.cb_makhoi.Size = new System.Drawing.Size(121, 21);
             this.cb_makhoi.TabIndex = 22;
+            // 
+            // button_huy
+            // 
+            this.button_huy.Image = ((System.Drawing.Image)(resources.GetObject("button_huy.Image")));
+            this.button_huy.Location = new System.Drawing.Point(697, 112);
+            this.button_huy.Name = "button_huy";
+            this.button_huy.Size = new System.Drawing.Size(80, 40);
+            this.button_huy.TabIndex = 5;
+            this.button_huy.Text = "Hủy";
+            this.button_huy.Click += new System.EventHandler(this.button_huy_Click);
+            // 
+            // button_xoa
+            // 
+            this.button_xoa.Image = ((System.Drawing.Image)(resources.GetObject("button_xoa.Image")));
+            this.button_xoa.Location = new System.Drawing.Point(697, 65);
+            this.button_xoa.Name = "button_xoa";
+            this.button_xoa.Size = new System.Drawing.Size(80, 40);
+            this.button_xoa.TabIndex = 4;
+            this.button_xoa.Text = "Xóa";
+            this.button_xoa.Click += new System.EventHandler(this.button_xoa_Click);
+            // 
+            // button_them
+            // 
+            this.button_them.Image = ((System.Drawing.Image)(resources.GetObject("button_them.Image")));
+            this.button_them.Location = new System.Drawing.Point(697, 12);
+            this.button_them.Name = "button_them";
+            this.button_them.Size = new System.Drawing.Size(80, 40);
+            this.button_them.TabIndex = 3;
+            this.button_them.Text = "Thêm";
+            this.button_them.Click += new System.EventHandler(this.button_them_Click);
+            // 
+            // button_sua
+            // 
+            this.button_sua.Image = ((System.Drawing.Image)(resources.GetObject("button_sua.Image")));
+            this.button_sua.Location = new System.Drawing.Point(814, 12);
+            this.button_sua.Name = "button_sua";
+            this.button_sua.Size = new System.Drawing.Size(80, 40);
+            this.button_sua.TabIndex = 2;
+            this.button_sua.Text = "Sửa";
+            this.button_sua.Click += new System.EventHandler(this.button_sua_Click);
+            // 
+            // button_luu
+            // 
+            this.button_luu.Image = ((System.Drawing.Image)(resources.GetObject("button_luu.Image")));
+            this.button_luu.Location = new System.Drawing.Point(814, 65);
+            this.button_luu.Name = "button_luu";
+            this.button_luu.Size = new System.Drawing.Size(80, 40);
+            this.button_luu.TabIndex = 1;
+            this.button_luu.Text = "Lưu ";
+            this.button_luu.Click += new System.EventHandler(this.button_luu_Click);
             // 
             // QLLop
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(933, 432);
-            this.Controls.Add(this.groupControl2);
-            this.Controls.Add(this.groupControl1);
+            this.Controls.Add(this.group_thongtin);
+            this.Controls.Add(this.group_hocky_namhoc);
             this.Controls.Add(this.button_huy);
             this.Controls.Add(this.button_xoa);
             this.Controls.Add(this.button_them);
             this.Controls.Add(this.button_sua);
             this.Controls.Add(this.button_luu);
             this.Controls.Add(this.data_view);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "QLLop";
             this.Text = "Thông Tin Lớp";
             this.Load += new System.EventHandler(this.QLLop_Load);
@@ -342,12 +343,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.text_siso.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.text_malop.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.text_tenlop.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
-            this.groupControl1.ResumeLayout(false);
-            this.groupControl1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).EndInit();
-            this.groupControl2.ResumeLayout(false);
-            this.groupControl2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.group_hocky_namhoc)).EndInit();
+            this.group_hocky_namhoc.ResumeLayout(false);
+            this.group_hocky_namhoc.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.group_thongtin)).EndInit();
+            this.group_thongtin.ResumeLayout(false);
+            this.group_thongtin.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -370,8 +371,8 @@
         private DevExpress.XtraEditors.LabelControl labelControl5;
         private DevExpress.XtraEditors.LabelControl labelControl6;
         private DevExpress.XtraEditors.LabelControl labelControl7;
-        private DevExpress.XtraEditors.GroupControl groupControl1;
-        private DevExpress.XtraEditors.GroupControl groupControl2;
+        private DevExpress.XtraEditors.GroupControl group_hocky_namhoc;
+        private DevExpress.XtraEditors.GroupControl group_thongtin;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;

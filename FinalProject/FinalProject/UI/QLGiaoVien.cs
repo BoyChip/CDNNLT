@@ -25,6 +25,7 @@ namespace FinalProject.UI
         private void QLGiaoVien_Load(object sender, EventArgs e)
         {
             Load_Data();
+            ControlButton(true);
         }
 
         private void Load_Data()
@@ -34,7 +35,7 @@ namespace FinalProject.UI
 
             ToBoMonBLL _ToBoMon = new ToBoMonBLL();
             cb_tobomon.DataSource = _ToBoMon.getData();
-            cb_tobomon.DisplayMember = "TENBOMON";
+            cb_tobomon.DisplayMember = "MATOBOMON";
             cb_tobomon.ValueMember = "MATOBOMON";
         }
 
@@ -90,23 +91,31 @@ namespace FinalProject.UI
 
         private void data_view_RowEnter(object sender, DataGridViewCellEventArgs e)
         {
-            int index = e.RowIndex;
+            GiaoVienBLL _GiaoVien = new GiaoVienBLL();
+            int count = _GiaoVien.Count_Data_Rows();
+            if (count == 0)
+            {
 
-            text_magiaovien.Text = data_view["Column1", index].Value.ToString();
-            text_hogiaovien.Text = data_view["Column2", index].Value.ToString();
-            text_tengiaovien.Text = data_view["Column3", index].Value.ToString();
-            date_ngaysinh.Text = data_view["Column4", index].Value.ToString();
-            cb_gioitinh.Text = data_view["Column5", index].Value.ToString();
-            text_dantoc.Text = data_view["Column6", index].Value.ToString();
-            text_sonha.Text = data_view["Column7", index].Value.ToString();
-            cb_xa_phuong.Text = data_view["Column8", index].Value.ToString();
-            cb_quan_huyen.Text = data_view["Column9", index].Value.ToString();
-            cb_tinh_thanhpho.Text = data_view["Column10", index].Value.ToString();
-            text_dienthoai.Text = data_view["Column11", index].Value.ToString();
-            cb_chucvu.Text = data_view["Column12", index].Value.ToString();
-            cb_chuyenmon.Text = data_view["Column13", index].Value.ToString();
-            cb_tobomon.Text = data_view["Column14", index].Value.ToString();
+            }
+            else
+            {
+                int index = e.RowIndex;
 
+                text_magiaovien.Text = data_view["Column1", index].Value.ToString();
+                text_hogiaovien.Text = data_view["Column2", index].Value.ToString();
+                text_tengiaovien.Text = data_view["Column3", index].Value.ToString();
+                date_ngaysinh.Text = data_view["Column4", index].Value.ToString();
+                cb_gioitinh.Text = data_view["Column5", index].Value.ToString();
+                text_dantoc.Text = data_view["Column6", index].Value.ToString();
+                text_sonha.Text = data_view["Column7", index].Value.ToString();
+                cb_xa_phuong.Text = data_view["Column8", index].Value.ToString();
+                cb_quan_huyen.Text = data_view["Column9", index].Value.ToString();
+                cb_tinh_thanhpho.Text = data_view["Column10", index].Value.ToString();
+                text_dienthoai.Text = data_view["Column11", index].Value.ToString();
+                cb_chucvu.Text = data_view["Column12", index].Value.ToString();
+                cb_chuyenmon.Text = data_view["Column13", index].Value.ToString();
+                cb_tobomon.Text = data_view["Column14", index].Value.ToString();
+            }
         }
 
         private void Excute(string strQuery)
@@ -131,10 +140,25 @@ namespace FinalProject.UI
                     obj_GiaoVien.ChuyenMon = cb_chuyenmon.Text.Trim();
                     obj_GiaoVien.MaToBoMon = cb_tobomon.Text.Trim();
 
+                    string _maGiaoVien = text_magiaovien.Text.Trim();
 
                     GiaoVienBLL _GiaoVien = new GiaoVienBLL();
-                    _GiaoVien.Insert(obj_GiaoVien);
-                    Load_Data();
+
+                    if (text_magiaovien.Text.Length == 0)
+                    {
+                        DevExpress.XtraEditors.XtraMessageBox.Show("Chưa nhập mã giáo viên!", "Thông báo!", MessageBoxButtons.OK);
+                    }
+                    else
+                    if (!(_GiaoVien.CheckID(_maGiaoVien)))
+                    {
+                        _GiaoVien.Insert(obj_GiaoVien);
+                        Load_Data();
+                    }
+                    else
+                    {
+                        DevExpress.XtraEditors.XtraMessageBox.Show("Mã giáo viên đã tồn tại!", "Thông báo!", MessageBoxButtons.OK);
+                    }
+
                 }
                 catch (Exception ex)
                 {

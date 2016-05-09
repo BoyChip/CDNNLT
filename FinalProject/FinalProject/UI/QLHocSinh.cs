@@ -39,7 +39,6 @@ namespace FinalProject.UI
             cb_malop.DataSource = _Lop.getData();
             cb_malop.DisplayMember = "MALOP";
             cb_malop.ValueMember = "MALOP";
-            
         }
 
         private void button_them_Click(object sender, EventArgs e)
@@ -83,8 +82,11 @@ namespace FinalProject.UI
 
         private void button_xoa_Click(object sender, EventArgs e)
         {
-            Query = "delete";
-            Excute(Query);
+            if (DevExpress.XtraEditors.XtraMessageBox.Show("Bạn có chắc chắn muốn xóa? Bạn sẽ không thể phục hồi dữ liệu đã bị xóa!", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                Query = "delete";
+                Excute(Query);
+            }
         }
 
         private void button_luu_Click(object sender, EventArgs e)
@@ -95,31 +97,43 @@ namespace FinalProject.UI
 
         private void button_huy_Click(object sender, EventArgs e)
         {
+            text_mahocsinh.Enabled = true;
+            Load_data();
             ControlButton(true);
         }
 
         private void data_view_RowEnter(object sender, DataGridViewCellEventArgs e)
         {
-            int index = e.RowIndex;
+            HocSinhBLL _HocSinh = new HocSinhBLL();
+            int count = _HocSinh.Count_Data_Rows();
+            if (count == 0)
+            {
 
-            text_mahocsinh.Text = data_view["Column1", index].Value.ToString();
-            cb_malop.Text = data_view["Column2", index].Value.ToString();
-            text_hohocsinh.Text = data_view["Column3", index].Value.ToString();
-            text_tenhocsinh.Text = data_view["Column4", index].Value.ToString();
-            cb_gioitinh.Text = data_view["Column5", index].Value.ToString();
-            date_ngaysinh.Text = data_view["Column6", index].Value.ToString();
-            cb_noisinh.Text = data_view["Column7", index].Value.ToString();
-            text_dantoc.Text = data_view["Column8", index].Value.ToString();
-            text_sonha.Text = data_view["Column9", index].Value.ToString();
-            cb_xa_phuong.Text = data_view["Column10", index].Value.ToString();
-            cb_quan_huyen.Text = data_view["Column11", index].Value.ToString();
-            cb_tinh_thanhpho.Text = data_view["Column12", index].Value.ToString();
-            text_hotencha.Text = data_view["Column13", index].Value.ToString();
-            text_hotenme.Text = data_view["Column14", index].Value.ToString();
-            text_nghenghiepcha.Text = data_view["Column15", index].Value.ToString();
-            text_nghenghiepme.Text = data_view["Column16", index].Value.ToString();
-            text_dienthoai.Text = data_view["Column17", index].Value.ToString();
-            text_ghichu.Text = data_view["Column18", index].Value.ToString();
+            }
+            else
+            {
+                int index = e.RowIndex;
+
+                text_mahocsinh.Text = data_view["Column1", index].Value.ToString();
+                cb_malop.Text = data_view["Column2", index].Value.ToString();
+                text_hohocsinh.Text = data_view["Column3", index].Value.ToString();
+                text_tenhocsinh.Text = data_view["Column4", index].Value.ToString();
+                cb_gioitinh.Text = data_view["Column5", index].Value.ToString();
+                date_ngaysinh.Text = data_view["Column6", index].Value.ToString();
+                cb_noisinh.Text = data_view["Column7", index].Value.ToString();
+                text_dantoc.Text = data_view["Column8", index].Value.ToString();
+                text_sonha.Text = data_view["Column9", index].Value.ToString();
+                cb_xa_phuong.Text = data_view["Column10", index].Value.ToString();
+                cb_quan_huyen.Text = data_view["Column11", index].Value.ToString();
+                cb_tinh_thanhpho.Text = data_view["Column12", index].Value.ToString();
+                text_hotencha.Text = data_view["Column13", index].Value.ToString();
+                text_hotenme.Text = data_view["Column14", index].Value.ToString();
+                text_nghenghiepcha.Text = data_view["Column15", index].Value.ToString();
+                text_nghenghiepme.Text = data_view["Column16", index].Value.ToString();
+                text_dienthoai.Text = data_view["Column17", index].Value.ToString();
+                text_ghichu.Text = data_view["Column18", index].Value.ToString();
+            }
+
         }
 
         private void Excute(string strQuery)
@@ -150,30 +164,29 @@ namespace FinalProject.UI
 
                     HocSinhBLL _HocSinh = new HocSinhBLL();
                     string _maHocSinh = text_mahocsinh.Text.Trim();
-                    if (text_mahocsinh.Text.Length == 0 )
+                    if (text_mahocsinh.Text.Length == 0)
                     {
-                        MessageBox.Show("Mã học sinh không được để trống!", "Thông báo!", MessageBoxButtons.OK);
+                        DevExpress.XtraEditors.XtraMessageBox.Show("Mã học sinh không được để trống!", "Thông báo!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
-                        else if (cb_malop.Text.Length == 0)
+                    else if (cb_malop.Text.Length == 0)
                     {
-                        MessageBox.Show("Mã lớp không được để trống!", "Thông báo!", MessageBoxButtons.OK);
+                        DevExpress.XtraEditors.XtraMessageBox.Show("Mã lớp không được để trống!", "Thông báo!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
-                    
-                    else if  (!(_HocSinh.CheckID(_maHocSinh)))
+
+                    else if (!(_HocSinh.CheckID(_maHocSinh)))
                     {
                         _HocSinh.Insert(obj_HocSinh);
                         Load_data();
                     }
                     else
                     {
-
-                        MessageBox.Show("Ma hoc sinh da ton tai", "thong bao!", MessageBoxButtons.OK);
+                        DevExpress.XtraEditors.XtraMessageBox.Show("Mã học sinh đã tồn tại!", "Thông báo!", MessageBoxButtons.OK);
                     }
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Them bi loi: " + ex.Message.ToString(), "Thong bao", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }        
+                    DevExpress.XtraEditors.XtraMessageBox.Show("Thêm bị lỗi: " + ex.Message.ToString(), "Thông báo!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
             if (strQuery == "edit")
             {
@@ -205,23 +218,32 @@ namespace FinalProject.UI
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Sua bi loi: " + ex.Message.ToString(), "Thong bao", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    DevExpress.XtraEditors.XtraMessageBox.Show("Sửa bị lỗi: " + ex.Message.ToString(), "Thông báo!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
             if (strQuery == "delete")
             {
                 try
                 {
+
                     string _maHocSinh = text_mahocsinh.Text.Trim();
                     HocSinhBLL _HocSinh = new HocSinhBLL();
+                    DiemBLL _Diem = new DiemBLL();
+                    HocLucBLL _HocLuc = new HocLucBLL();
+                    HanhKiemBLL _HanhKiem = new HanhKiemBLL();
+                    TongKetKetQuaBLL _KetQua = new TongKetKetQuaBLL();
+
+                    _Diem.Delete(_maHocSinh);
+                    _HocLuc.Delete(_maHocSinh);
+                    _HanhKiem.Delete(_maHocSinh);
+                    _KetQua.Delete(_maHocSinh);
                     _HocSinh.Delete(_maHocSinh);
                     Load_data();
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Xóa bị lỗi: " + ex.Message.ToString(), "Thong bao", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    DevExpress.XtraEditors.XtraMessageBox.Show("Xóa bị lỗi: " + ex.Message.ToString(), "Thông báo!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
-
             }
         }
 
@@ -229,6 +251,11 @@ namespace FinalProject.UI
         {
             this.button_them.Enabled = button_sua.Enabled = button_xoa.Enabled = type;
             button_luu.Enabled = button_huy.Enabled = !type;
+        }
+
+        private void labelControl9_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
