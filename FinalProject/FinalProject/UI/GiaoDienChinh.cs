@@ -125,5 +125,26 @@ namespace FinalProject.UI
             _TimKiemLop.Show();
         }
 
+
+        private void backstageViewButtonItem1_ItemClick(object sender, DevExpress.XtraBars.Ribbon.BackstageViewItemEventArgs e)
+        {
+            DoiMatKhau _DoiMatKhau = new DoiMatKhau();
+            _DoiMatKhau.Show();
+        }
+
+        private void backstageViewButtonItem2_ItemClick(object sender, DevExpress.XtraBars.Ribbon.BackstageViewItemEventArgs e)
+        {
+            CapTaiKhoan _CapTaiKhoan = new CapTaiKhoan();
+            _CapTaiKhoan.Show();
+        }
+
+        private void backstageViewButtonItem3_ItemClick(object sender, DevExpress.XtraBars.Ribbon.BackstageViewItemEventArgs e)
+        {
+            if (DevExpress.XtraEditors.XtraMessageBox.Show("Bạn có chắc chắn muốn thoát?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                System.Windows.Forms.Application.Exit();
+            }
+        }
+
     }
 }

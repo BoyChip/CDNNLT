@@ -85,6 +85,17 @@ namespace FinalProject.Business
             result = config.executeNoneQuery(strQery);
             return result;
         }
+
+        // cap nhat thong tin lop hoc sinh
+
+        public int Update_Class(HocSinhEntities obj)
+        {
+            int result = 0;
+            string strQery = "update dbo.hocsinh set MALOP = N'" + obj.MaLopHocSinh + "' where MAHOCSINH = '" + obj.MaHocSinh + "'";
+            DataConfig config = new DataConfig();
+            result = config.executeNoneQuery(strQery);
+            return result;
+        }
         // cau lenh xoa
         public int Delete(string _MaHocSinh)
         {
