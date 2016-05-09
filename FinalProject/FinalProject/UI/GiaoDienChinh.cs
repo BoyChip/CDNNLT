@@ -102,5 +102,28 @@ namespace FinalProject.UI
             _KetQua.Show();
         }
 
+        private void button_timkiemhocsinh_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            TimKiemHocSinh _TimKiemHocSinh = new TimKiemHocSinh();
+            _TimKiemHocSinh.MdiParent = this;
+            _TimKiemHocSinh.Show();
+
+        }
+
+        private void button_timkiemgiaovien_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            TimKiemGiaoVien _TimKiemGiaoVien = new TimKiemGiaoVien();
+            _TimKiemGiaoVien.MdiParent = this;
+            _TimKiemGiaoVien.Show();
+
+        }
+
+        private void button_timkiemlop_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            TimKiemLop _TimKiemLop = new TimKiemLop();
+            _TimKiemLop.MdiParent = this;
+            _TimKiemLop.Show();
+        }
+
     }
 }

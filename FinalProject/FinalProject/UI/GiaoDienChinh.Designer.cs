@@ -52,6 +52,13 @@
             this.ribbonPageGroup5 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup6 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.xtraTabbedMdiManager1 = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
+            this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.ribbonPageGroup7 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup8 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup9 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.button_timkiemhocsinh = new DevExpress.XtraBars.BarButtonItem();
+            this.button_timkiemgiaovien = new DevExpress.XtraBars.BarButtonItem();
+            this.button_timkiemlop = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager1)).BeginInit();
             this.SuspendLayout();
@@ -73,12 +80,16 @@
             this.button_qlHocKyNamHoc,
             this.button_qlHocLuc,
             this.button_qlHanhKiem,
-            this.button_qlTongKet});
+            this.button_qlTongKet,
+            this.button_timkiemhocsinh,
+            this.button_timkiemgiaovien,
+            this.button_timkiemlop});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl1.MaxItemId = 14;
+            this.ribbonControl1.MaxItemId = 17;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
-            this.ribbonPage1});
+            this.ribbonPage1,
+            this.ribbonPage2});
             this.ribbonControl1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2013;
             this.ribbonControl1.Size = new System.Drawing.Size(807, 144);
             this.ribbonControl1.ToolbarLocation = DevExpress.XtraBars.Ribbon.RibbonQuickAccessToolbarLocation.Above;
@@ -273,6 +284,57 @@
             // 
             this.xtraTabbedMdiManager1.MdiParent = this;
             // 
+            // ribbonPage2
+            // 
+            this.ribbonPage2.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.ribbonPageGroup7,
+            this.ribbonPageGroup8,
+            this.ribbonPageGroup9});
+            this.ribbonPage2.Name = "ribbonPage2";
+            this.ribbonPage2.Text = "Tra cứu";
+            // 
+            // ribbonPageGroup7
+            // 
+            this.ribbonPageGroup7.ItemLinks.Add(this.button_timkiemhocsinh);
+            this.ribbonPageGroup7.Name = "ribbonPageGroup7";
+            this.ribbonPageGroup7.Text = "Học Sinh";
+            // 
+            // ribbonPageGroup8
+            // 
+            this.ribbonPageGroup8.ItemLinks.Add(this.button_timkiemgiaovien);
+            this.ribbonPageGroup8.Name = "ribbonPageGroup8";
+            this.ribbonPageGroup8.Text = "Giáo Viên";
+            // 
+            // ribbonPageGroup9
+            // 
+            this.ribbonPageGroup9.ItemLinks.Add(this.button_timkiemlop);
+            this.ribbonPageGroup9.Name = "ribbonPageGroup9";
+            this.ribbonPageGroup9.Text = "Lớp";
+            // 
+            // button_timkiemhocsinh
+            // 
+            this.button_timkiemhocsinh.Caption = "Học Sinh";
+            this.button_timkiemhocsinh.Id = 14;
+            this.button_timkiemhocsinh.Name = "button_timkiemhocsinh";
+            this.button_timkiemhocsinh.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.button_timkiemhocsinh.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.button_timkiemhocsinh_ItemClick);
+            // 
+            // button_timkiemgiaovien
+            // 
+            this.button_timkiemgiaovien.Caption = "Giáo Viên";
+            this.button_timkiemgiaovien.Id = 15;
+            this.button_timkiemgiaovien.Name = "button_timkiemgiaovien";
+            this.button_timkiemgiaovien.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.button_timkiemgiaovien.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.button_timkiemgiaovien_ItemClick);
+            // 
+            // button_timkiemlop
+            // 
+            this.button_timkiemlop.Caption = "Lớp";
+            this.button_timkiemlop.Id = 16;
+            this.button_timkiemlop.Name = "button_timkiemlop";
+            this.button_timkiemlop.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.button_timkiemlop.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.button_timkiemlop_ItemClick);
+            // 
             // GiaoDienChinh
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -316,5 +378,12 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup5;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup6;
         private DevExpress.XtraTabbedMdi.XtraTabbedMdiManager xtraTabbedMdiManager1;
+        private DevExpress.XtraBars.BarButtonItem button_timkiemhocsinh;
+        private DevExpress.XtraBars.BarButtonItem button_timkiemgiaovien;
+        private DevExpress.XtraBars.BarButtonItem button_timkiemlop;
+        private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage2;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup7;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup8;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup9;
     }
 }

@@ -26,7 +26,7 @@ namespace FinalProject.Business
         public int Insert(GiaoVienEntities obj)
         {
             int result = 0;
-            string strQuery = "insert into dbo.giaovien (MAGIAOVIEN, HOGIAOVIEN, TENGIAOVIEN, NGAYSINH, GIOITINH, DANTOC, DIACHI_SONHA, DIACHI_XA_PHUONG, DIACHI_QUAN_HUYEN, DIACHI_TINH_THANHPHO, DIENTHOAI, CHUCVU, CHUYENMON, MATOBOMON) values ('" + obj.MaGiaoVien + "', N'" + obj.HoGiaoVien + "', N'"+obj.TenGiaoVien+"', '"+obj.NgaySinh+"', N'"+obj.DanToc+"',N'"+obj.DiaChi_SoNha+"',N'"+obj.DiaChi_Xa_Phuong+"', N'"+obj.DiaChi_Quan_Huyen+"', N'"+obj.DiaChi_Tinh_ThanhPho+"', N'"+obj.SoDienThoai+"', N'"+obj.ChucVu+"', N'"+obj.ChuyenMon+"', N'"+obj.MaToBoMon+"')";
+            string strQuery = "insert into dbo.giaovien (MAGIAOVIEN, HOGIAOVIEN, TENGIAOVIEN, NGAYSINH, GIOITINH, DANTOC, DIACHI_SONHA, DIACHI_XA_PHUONG, DIACHI_QUAN_HUYEN, DIACHI_TINH_THANHPHO, DIENTHOAI, CHUCVU, CHUYENMON, MATOBOMON) values ('" + obj.MaGiaoVien + "', N'" + obj.HoGiaoVien + "', N'"+obj.TenGiaoVien+"', '"+obj.NgaySinh+"','"+obj.GioiTinh+"', N'"+obj.DanToc+"',N'"+obj.DiaChi_SoNha+"',N'"+obj.DiaChi_Xa_Phuong+"', N'"+obj.DiaChi_Quan_Huyen+"', N'"+obj.DiaChi_Tinh_ThanhPho+"', N'"+obj.SoDienThoai+"', N'"+obj.ChucVu+"', N'"+obj.ChuyenMon+"', N'"+obj.MaToBoMon+"')";
             DataConfig config = new DataConfig();
             result = config.executeNoneQuery(strQuery);
             return result;
