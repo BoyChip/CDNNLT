@@ -31,6 +31,10 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GiaoDienChinh));
             this.ribbonControl1 = new DevExpress.XtraBars.Ribbon.RibbonControl();
+            this.backstageViewControl1 = new DevExpress.XtraBars.Ribbon.BackstageViewControl();
+            this.backstageViewButtonItem1 = new DevExpress.XtraBars.Ribbon.BackstageViewButtonItem();
+            this.backstageViewButtonItem2 = new DevExpress.XtraBars.Ribbon.BackstageViewButtonItem();
+            this.backstageViewButtonItem3 = new DevExpress.XtraBars.Ribbon.BackstageViewButtonItem();
             this.button_qlHocSinh = new DevExpress.XtraBars.BarButtonItem();
             this.button_qlPhanLop = new DevExpress.XtraBars.BarButtonItem();
             this.button_qlGiaoVien = new DevExpress.XtraBars.BarButtonItem();
@@ -59,10 +63,6 @@
             this.ribbonPageGroup8 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup9 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.xtraTabbedMdiManager1 = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
-            this.backstageViewControl1 = new DevExpress.XtraBars.Ribbon.BackstageViewControl();
-            this.backstageViewButtonItem1 = new DevExpress.XtraBars.Ribbon.BackstageViewButtonItem();
-            this.backstageViewButtonItem2 = new DevExpress.XtraBars.Ribbon.BackstageViewButtonItem();
-            this.backstageViewButtonItem3 = new DevExpress.XtraBars.Ribbon.BackstageViewButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager1)).BeginInit();
             this.SuspendLayout();
@@ -98,6 +98,37 @@
             this.ribbonControl1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2013;
             this.ribbonControl1.Size = new System.Drawing.Size(908, 144);
             this.ribbonControl1.ToolbarLocation = DevExpress.XtraBars.Ribbon.RibbonQuickAccessToolbarLocation.Above;
+            // 
+            // backstageViewControl1
+            // 
+            this.backstageViewControl1.ColorScheme = DevExpress.XtraBars.Ribbon.RibbonControlColorScheme.Yellow;
+            this.backstageViewControl1.Items.Add(this.backstageViewButtonItem1);
+            this.backstageViewControl1.Items.Add(this.backstageViewButtonItem2);
+            this.backstageViewControl1.Items.Add(this.backstageViewButtonItem3);
+            this.backstageViewControl1.Location = new System.Drawing.Point(233, 43);
+            this.backstageViewControl1.Name = "backstageViewControl1";
+            this.backstageViewControl1.Ribbon = this.ribbonControl1;
+            this.backstageViewControl1.SelectedTab = null;
+            this.backstageViewControl1.Size = new System.Drawing.Size(480, 326);
+            this.backstageViewControl1.TabIndex = 2;
+            // 
+            // backstageViewButtonItem1
+            // 
+            this.backstageViewButtonItem1.Caption = "Đổi mật khẩu";
+            this.backstageViewButtonItem1.Name = "backstageViewButtonItem1";
+            this.backstageViewButtonItem1.ItemClick += new DevExpress.XtraBars.Ribbon.BackstageViewItemEventHandler(this.backstageViewButtonItem1_ItemClick);
+            // 
+            // backstageViewButtonItem2
+            // 
+            this.backstageViewButtonItem2.Caption = "Cấp tài khoản";
+            this.backstageViewButtonItem2.Name = "backstageViewButtonItem2";
+            this.backstageViewButtonItem2.ItemClick += new DevExpress.XtraBars.Ribbon.BackstageViewItemEventHandler(this.backstageViewButtonItem2_ItemClick);
+            // 
+            // backstageViewButtonItem3
+            // 
+            this.backstageViewButtonItem3.Caption = "Thoát";
+            this.backstageViewButtonItem3.Name = "backstageViewButtonItem3";
+            this.backstageViewButtonItem3.ItemClick += new DevExpress.XtraBars.Ribbon.BackstageViewItemEventHandler(this.backstageViewButtonItem3_ItemClick);
             // 
             // button_qlHocSinh
             // 
@@ -320,6 +351,7 @@
             // 
             // ribbonPageGroup7
             // 
+            this.ribbonPageGroup7.AllowTextClipping = false;
             this.ribbonPageGroup7.ItemLinks.Add(this.button_timkiemhocsinh);
             this.ribbonPageGroup7.Name = "ribbonPageGroup7";
             this.ribbonPageGroup7.Text = "Học Sinh";
@@ -328,48 +360,19 @@
             // 
             this.ribbonPageGroup8.ItemLinks.Add(this.button_timkiemgiaovien);
             this.ribbonPageGroup8.Name = "ribbonPageGroup8";
+            this.ribbonPageGroup8.ShowCaptionButton = false;
             this.ribbonPageGroup8.Text = "Giáo Viên";
             // 
             // ribbonPageGroup9
             // 
             this.ribbonPageGroup9.ItemLinks.Add(this.button_timkiemlop);
             this.ribbonPageGroup9.Name = "ribbonPageGroup9";
+            this.ribbonPageGroup9.ShowCaptionButton = false;
             this.ribbonPageGroup9.Text = "Lớp";
             // 
             // xtraTabbedMdiManager1
             // 
             this.xtraTabbedMdiManager1.MdiParent = this;
-            // 
-            // backstageViewControl1
-            // 
-            this.backstageViewControl1.ColorScheme = DevExpress.XtraBars.Ribbon.RibbonControlColorScheme.Yellow;
-            this.backstageViewControl1.Items.Add(this.backstageViewButtonItem1);
-            this.backstageViewControl1.Items.Add(this.backstageViewButtonItem2);
-            this.backstageViewControl1.Items.Add(this.backstageViewButtonItem3);
-            this.backstageViewControl1.Location = new System.Drawing.Point(233, 43);
-            this.backstageViewControl1.Name = "backstageViewControl1";
-            this.backstageViewControl1.Ribbon = this.ribbonControl1;
-            this.backstageViewControl1.SelectedTab = null;
-            this.backstageViewControl1.Size = new System.Drawing.Size(480, 326);
-            this.backstageViewControl1.TabIndex = 2;
-            // 
-            // backstageViewButtonItem1
-            // 
-            this.backstageViewButtonItem1.Caption = "Đổi mật khẩu";
-            this.backstageViewButtonItem1.Name = "backstageViewButtonItem1";
-            this.backstageViewButtonItem1.ItemClick += new DevExpress.XtraBars.Ribbon.BackstageViewItemEventHandler(this.backstageViewButtonItem1_ItemClick);
-            // 
-            // backstageViewButtonItem2
-            // 
-            this.backstageViewButtonItem2.Caption = "Cấp tài khoản";
-            this.backstageViewButtonItem2.Name = "backstageViewButtonItem2";
-            this.backstageViewButtonItem2.ItemClick += new DevExpress.XtraBars.Ribbon.BackstageViewItemEventHandler(this.backstageViewButtonItem2_ItemClick);
-            // 
-            // backstageViewButtonItem3
-            // 
-            this.backstageViewButtonItem3.Caption = "Thoát";
-            this.backstageViewButtonItem3.Name = "backstageViewButtonItem3";
-            this.backstageViewButtonItem3.ItemClick += new DevExpress.XtraBars.Ribbon.BackstageViewItemEventHandler(this.backstageViewButtonItem3_ItemClick);
             // 
             // GiaoDienChinh
             // 

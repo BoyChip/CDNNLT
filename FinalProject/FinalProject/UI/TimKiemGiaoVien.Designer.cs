@@ -42,22 +42,24 @@
             this.data_view.AllowUserToAddRows = false;
             this.data_view.AllowUserToDeleteRows = false;
             this.data_view.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.data_view.Location = new System.Drawing.Point(29, 99);
+            this.data_view.Location = new System.Drawing.Point(12, 66);
+            this.data_view.MultiSelect = false;
             this.data_view.Name = "data_view";
-            this.data_view.Size = new System.Drawing.Size(418, 150);
+            this.data_view.ReadOnly = true;
+            this.data_view.Size = new System.Drawing.Size(1012, 232);
             this.data_view.TabIndex = 0;
             // 
             // text_item
             // 
-            this.text_item.Location = new System.Drawing.Point(169, 42);
+            this.text_item.Location = new System.Drawing.Point(150, 13);
             this.text_item.Name = "text_item";
-            this.text_item.Size = new System.Drawing.Size(100, 20);
+            this.text_item.Size = new System.Drawing.Size(136, 20);
             this.text_item.TabIndex = 1;
             this.text_item.TextChanged += new System.EventHandler(this.text_item_TextChanged);
             // 
             // labelControl1
             // 
-            this.labelControl1.Location = new System.Drawing.Point(12, 45);
+            this.labelControl1.Location = new System.Drawing.Point(12, 16);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(132, 13);
             this.labelControl1.TabIndex = 2;
@@ -65,7 +67,7 @@
             // 
             // button_timkiem
             // 
-            this.button_timkiem.Location = new System.Drawing.Point(275, 35);
+            this.button_timkiem.Location = new System.Drawing.Point(292, 10);
             this.button_timkiem.Name = "button_timkiem";
             this.button_timkiem.Size = new System.Drawing.Size(75, 23);
             this.button_timkiem.TabIndex = 3;
@@ -76,14 +78,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(476, 261);
+            this.ClientSize = new System.Drawing.Size(1036, 310);
             this.Controls.Add(this.button_timkiem);
             this.Controls.Add(this.labelControl1);
             this.Controls.Add(this.text_item);
             this.Controls.Add(this.data_view);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "TimKiemGiaoVien";
-            this.Text = "TimKiemGiaoVien";
+            this.Text = "Tìm kiếm giáo viên";
             this.Load += new System.EventHandler(this.TimKiemGiaoVien_Load);
             ((System.ComponentModel.ISupportInitialize)(this.data_view)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.text_item.Properties)).EndInit();

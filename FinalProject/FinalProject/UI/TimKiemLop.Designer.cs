@@ -42,14 +42,16 @@
             this.data_view.AllowUserToAddRows = false;
             this.data_view.AllowUserToDeleteRows = false;
             this.data_view.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.data_view.Location = new System.Drawing.Point(37, 100);
+            this.data_view.Location = new System.Drawing.Point(12, 35);
+            this.data_view.MultiSelect = false;
             this.data_view.Name = "data_view";
-            this.data_view.Size = new System.Drawing.Size(384, 150);
+            this.data_view.ReadOnly = true;
+            this.data_view.Size = new System.Drawing.Size(1048, 215);
             this.data_view.TabIndex = 0;
             // 
             // text_finditem
             // 
-            this.text_finditem.Location = new System.Drawing.Point(143, 19);
+            this.text_finditem.Location = new System.Drawing.Point(135, 9);
             this.text_finditem.Name = "text_finditem";
             this.text_finditem.Size = new System.Drawing.Size(100, 20);
             this.text_finditem.TabIndex = 1;
@@ -57,7 +59,7 @@
             // 
             // button_timkiem
             // 
-            this.button_timkiem.Location = new System.Drawing.Point(275, 16);
+            this.button_timkiem.Location = new System.Drawing.Point(254, 6);
             this.button_timkiem.Name = "button_timkiem";
             this.button_timkiem.Size = new System.Drawing.Size(75, 23);
             this.button_timkiem.TabIndex = 2;
@@ -66,7 +68,7 @@
             // 
             // labelControl1
             // 
-            this.labelControl1.Location = new System.Drawing.Point(12, 22);
+            this.labelControl1.Location = new System.Drawing.Point(12, 12);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(108, 13);
             this.labelControl1.TabIndex = 3;
@@ -76,14 +78,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(433, 262);
+            this.ClientSize = new System.Drawing.Size(1072, 262);
             this.Controls.Add(this.labelControl1);
             this.Controls.Add(this.button_timkiem);
             this.Controls.Add(this.text_finditem);
             this.Controls.Add(this.data_view);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "TimKiemLop";
-            this.Text = "TimKiemLop";
+            this.Text = "Tìm kiếm lớp";
             this.Load += new System.EventHandler(this.TimKiemLop_Load);
             ((System.ComponentModel.ISupportInitialize)(this.data_view)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.text_finditem.Properties)).EndInit();

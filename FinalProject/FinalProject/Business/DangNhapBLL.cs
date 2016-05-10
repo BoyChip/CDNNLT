@@ -11,7 +11,10 @@ namespace FinalProject.Business
 {
     class DangNhapBLL
     {
-        // lay co so du lieu 
+        /// <summary>
+        /// Hàm này có tác dụng lấy dữ liệu từ bảng tương ứng có trong cơ sở dữ liệu
+        /// </summary>
+        /// <returns>Bảng dữ liệu có đầu đủ thuộc tính của bảng</returns>
         public DataTable getData()
         {
             DataTable dtResult = new DataTable();
@@ -21,7 +24,11 @@ namespace FinalProject.Business
             return dtResult;
         }
 
-        // them co so du lieu
+        /// <summary>
+        /// Hàm này có tác dụng thêm cơ sở dữ liệu vào bảng dữ liệu tương ứng. Đầu vào là một thực thể entities bao gồm các thuộc tính cần thêm. Trả về 1 dòng giá trị sau khi thực hiện thêm.
+        /// </summary>
+        /// <param name="obj">Thực thể tương ứng với hàm. Vd: ở đây là thực thể DangNhapEntities bao gồm các thuộc tính tương ứng của thực thể đó.</param>
+        /// <returns></returns>
         public int Insert(DangNhapEntities obj)
         {
             int result = 0;
@@ -30,7 +37,11 @@ namespace FinalProject.Business
             result = config.executeNoneQuery(strQuery);
             return result;
         }
-        // check ID 
+        /// <summary>
+        /// Hàm này có tác dụng kiểm tra xem đã có dữ liệu trong cơ sở dữ liệu bằng cách kiểm tra khóa chính hoặc các thuộc tính cần kiểm tra. Hàm trả về kết quả đúng hay sai. Nếu đúng nghĩa là đã có dữ liệu tương ứng trong cơ sở dữ liệu, sai thì ngược lại. 
+        /// </summary>
+        /// <param name="_maGiaoVien">Nhận vào thuộc tính kiểm tra là Mã giáo viên.</param>
+        /// <returns>Trả về đúng hoặc sai.</returns>
         public bool CheckID(string _maGiaoVien)
         {
             DataConfig config = new DataConfig();
@@ -42,7 +53,13 @@ namespace FinalProject.Business
             return false;
         }
 
-        //check mat khau
+        /// <summary>
+        /// Hàm này kiểm tra tài khoản đã được cấp hay chưa. Nằm trong mục cấp tài khoản, cấp tài khoản phục vụ việc đăng nhập trong phần mềm. Nếu chưa có tài khoản đăng nhập thì phải tạo mới tài khoản.
+        /// Hàm này thực hiện trong form Cấp tài khoản. Và hàm đổi mật khẩu tài khoản.
+        /// </summary>
+        /// <param name="_maGiaoVien">Nhận vào thuộc tính mã giáo viên.</param>
+        /// <param name="_matKhau">Nhận vào thuộc tính mật khẩu tương ứng.</param>
+        /// <returns>Trả về đúng hoặc sai.</returns>
         public bool Check_Pass(string _maGiaoVien, string _matKhau)
         {
             DataConfig config = new DataConfig();
@@ -54,7 +71,10 @@ namespace FinalProject.Business
             return false;
         }
 
-        // diem so luong phan tu co trong csdl
+        /// <summary>
+        /// Hàm này có tác dụng điếm tất cả dòng có trong bảng tương ứng khi nhận vào. 
+        /// </summary>
+        /// <returns>Trả về 1 giá trị tương ứng với thực thể đầu vào.</returns>
         public int  Count_Data_Rows()
         {
             int result = 0;
@@ -62,11 +82,15 @@ namespace FinalProject.Business
             string strQuery = "select * from dbo.dangnhap";
             DataTable dt = new DataTable();
             dt = config.GetDataTable(strQuery);
-            result = dt.Rows.Count;
-                
+            result = dt.Rows.Count;         
             return result;
         }
-        // check Dang nhap
+       /// <summary>
+       /// Hàm này kiểm tra tên đăng nhập và mật khẩu của người dùng. Trả về kết quả đúng hoặc sai. Đúng thì đăng nhập thành công, sai thì không thể đăng nhập.
+       /// </summary>
+       /// <param name="_tenDangNhap">Nhận vào tên đăng nhập.</param>
+       /// <param name="_matKhau">Nhận vào mật khẩu.</param>
+       /// <returns>Trả về kết quả đúng hoặc sai.</returns>
         public bool Check_DangNhap(string _tenDangNhap, string _matKhau)
         {
             DataConfig config = new DataConfig();
@@ -78,7 +102,11 @@ namespace FinalProject.Business
             return false;
         }
 
-        // cau lenh update
+        /// <summary>
+        /// Hàm này có phép thực hiện cập nhật lại thông tin của dòng dữ liệu tương ứng với thực thể nhận vào.
+        /// </summary>
+        /// <param name="obj">Thực thể tương ứng.</param>
+        /// <returns>Trả về dòng dữ liệu đã được cập nhật.</returns>
         public int Update(DangNhapEntities obj)
         {
             int result = 0;
@@ -88,7 +116,12 @@ namespace FinalProject.Business
             return result;
         }
 
-        // update mat khau 
+        /// <summary>
+        /// Hàm này có tác dụng cập nhật lại mật khẩu của người dùng khi sử dụng phần mềm.
+        /// </summary>
+        /// <param name="obj">Nhận vào thuộc tính mã giáo viên và mật khẩu của thực thể tương ứng.</param>
+        /// <returns>Trả về mật khẩu mới tương ứng.</returns>
+ 
         public int Update_Pass(DangNhapEntities obj)
         {
             int result = 0;
@@ -97,7 +130,12 @@ namespace FinalProject.Business
             result = config.executeNoneQuery(strQuery);
             return result;
         }
-        // cau lenh xoa 
+        /// <summary>
+        /// Xóa người dùng tương ứng.
+        /// </summary>
+        /// <param name="_maGiaoVien">Nhận vào mã giáo viên.</param>
+        /// <returns>Xóa người dùng giáo viên tương ứng nhận vào.</returns>
+ 
         public int Delete(string _maGiaoVien)
         {
             int result = 0;
